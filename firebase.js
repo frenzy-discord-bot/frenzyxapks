@@ -1,24 +1,10 @@
 // ============================================================
-// FRENZY CHEATS APK HUB - FIREBASE CONFIG
+// FRENZY CHEATS - FIREBASE.JS
+// Firebase Storage NOT USED
+// Firebase Auth + Firestore ONLY
 // ============================================================
 
-export const firebaseConfig = {
-  apiKey: "AIzaSyCSJFYHI20c4XBf4JNaTsRHNQbHbd63hoc",
-  authDomain: "frenzy-apks.firebaseapp.com",
-  projectId: "frenzy-apks",
-  storageBucket: "frenzy-apks.firebasestorage.app",
-  messagingSenderId: "670031638962",
-  appId: "G-ZJ0KG1T3W4"
-};
-
-
-// ============================================================
-// FIREBASE IMPORTS
-// ============================================================
-
-import {
-  initializeApp
-} from
+import { initializeApp } from
 "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
 import {
@@ -36,49 +22,62 @@ import {
   getDocs,
   getDoc,
   doc,
-  setDoc,
   updateDoc,
   deleteDoc,
   query,
-  where,
   orderBy,
   increment,
   serverTimestamp
 } from
 "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
-import {
-  getStorage,
-  ref,
-  uploadBytes,
-  uploadBytesResumable,
-  getDownloadURL
-} from
-"https://www.gstatic.com/firebasejs/12.16.0/firebase-storage.js";
+
+// ============================================================
+// FIREBASE CONFIG
+// Replace these values with your Firebase project config
+// ============================================================
+
+const firebaseConfig = {
+
+  apiKey: "YOUR_API_KEY",
+
+  authDomain:
+    "YOUR_PROJECT.firebaseapp.com",
+
+  projectId:
+    "YOUR_PROJECT_ID",
+
+  messagingSenderId:
+    "YOUR_MESSAGING_SENDER_ID",
+
+  appId:
+    "YOUR_APP_ID"
+
+};
 
 
 // ============================================================
-// INITIALIZE FIREBASE
+// INITIALIZE
 // ============================================================
 
 const app =
   initializeApp(firebaseConfig);
 
-export const auth =
+const auth =
   getAuth(app);
 
-export const db =
+const db =
   getFirestore(app);
-
-export const storage =
-  getStorage(app);
 
 
 // ============================================================
-// AUTH
+// AUTH EXPORTS
 // ============================================================
 
 export {
+  auth,
+  db,
+
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut
@@ -86,17 +85,50 @@ export {
 
 
 // ============================================================
-// APK - GET PUBLISHED
+// ADMIN LOGIN
 // ============================================================
 
-export async function getPublishedAPKs() {
+export async function adminLogin(
+  email,
+  password
+) {
+
+  if (!email || !password) {
+    throw new Error(
+      "Email and password are required."
+    );
+  }
+
+  return await signInWithEmailAndPassword(
+    auth,
+    email,
+    password
+  );
+
+}
+
+
+// ============================================================
+// ADMIN LOGOUT
+// ============================================================
+
+export async function adminLogout() {
+
+  await signOut(auth);
+
+}
+
+
+// ============================================================
+// GET ALL APKs
+// ============================================================
+
+export async function getAllAPKs() {
 
   const q = query(
-    collection(db, "apks"),
-    where(
-      "published",
-      "==",
-      true
+    collection(
+      db,
+      "apks"
     ),
     orderBy(
       "createdAt",
@@ -109,8 +141,11 @@ export async function getPublishedAPKs() {
 
   return snapshot.docs.map(
     item => ({
+
       id: item.id,
+
       ...item.data()
+
     })
   );
 
@@ -118,13 +153,16 @@ export async function getPublishedAPKs() {
 
 
 // ============================================================
-// APK - GET ALL
+// GET PUBLISHED APKs
 // ============================================================
 
-export async function getAllAPKs() {
+export async function getPublishedAPKs() {
 
   const q = query(
-    collection(db, "apks"),
+    collection(
+      db,
+      "apks"
+    ),
     orderBy(
       "createdAt",
       "desc"
@@ -134,53 +172,38 @@ export async function getAllAPKs() {
   const snapshot =
     await getDocs(q);
 
-  return snapshot.docs.map(
-    item => ({
-      id: item.id,
-      ...item.data()
-    })
-  );
+  return snapshot.docs
+    .map(
+      item => ({
 
-}
+        id: item.id,
 
+        ...item.data()
 
-// ============================================================
-// APK - GET SINGLE
-// ============================================================
-
-export async function getAPK(id) {
-
-  const snap =
-    await getDoc(
-      doc(
-        db,
-        "apks",
-        id
-      )
+      })
+    )
+    .filter(
+      item =>
+        item.published === true
     );
 
-  if (!snap.exists()) {
-    return null;
-  }
-
-  return {
-    id: snap.id,
-    ...snap.data()
-  };
-
 }
 
 
 // ============================================================
-// APK - ADD
+// ADD APK
 // ============================================================
 
-export async function addAPK(data) {
+export async function addAPK(
+  data
+) {
 
   if (!auth.currentUser) {
+
     throw new Error(
       "Admin login required."
     );
+
   }
 
   return await addDoc(
@@ -190,9 +213,51 @@ export async function addAPK(data) {
     ),
     {
 
-      ...data,
+      name:
+        data.name || "",
 
-      downloadCount: 0,
+      category:
+        data.category || "Android",
+
+      version:
+        data.version || "",
+
+      logoUrl:
+        data.logoUrl || "",
+
+      downloadUrl:
+        data.downloadUrl || "",
+
+      telegramUrl:
+        data.telegramUrl || "",
+
+      compatibility:
+        data.compatibility || "",
+
+      badge:
+        data.badge || "",
+
+      shortDescription:
+        data.shortDescription || "",
+
+      description:
+        data.description || "",
+
+      features:
+        Array.isArray(
+          data.features
+        )
+          ? data.features
+          : [],
+
+      published:
+        data.published === true,
+
+      featured:
+        data.featured === true,
+
+      downloadCount:
+        0,
 
       createdAt:
         serverTimestamp(),
@@ -207,7 +272,7 @@ export async function addAPK(data) {
 
 
 // ============================================================
-// APK - UPDATE
+// UPDATE APK
 // ============================================================
 
 export async function updateAPK(
@@ -216,9 +281,11 @@ export async function updateAPK(
 ) {
 
   if (!auth.currentUser) {
+
     throw new Error(
       "Admin login required."
     );
+
   }
 
   return await updateDoc(
@@ -229,7 +296,48 @@ export async function updateAPK(
     ),
     {
 
-      ...data,
+      name:
+        data.name || "",
+
+      category:
+        data.category || "Android",
+
+      version:
+        data.version || "",
+
+      logoUrl:
+        data.logoUrl || "",
+
+      downloadUrl:
+        data.downloadUrl || "",
+
+      telegramUrl:
+        data.telegramUrl || "",
+
+      compatibility:
+        data.compatibility || "",
+
+      badge:
+        data.badge || "",
+
+      shortDescription:
+        data.shortDescription || "",
+
+      description:
+        data.description || "",
+
+      features:
+        Array.isArray(
+          data.features
+        )
+          ? data.features
+          : [],
+
+      published:
+        data.published === true,
+
+      featured:
+        data.featured === true,
 
       updatedAt:
         serverTimestamp()
@@ -241,7 +349,7 @@ export async function updateAPK(
 
 
 // ============================================================
-// APK - DELETE
+// DELETE APK
 // ============================================================
 
 export async function deleteAPK(
@@ -249,9 +357,11 @@ export async function deleteAPK(
 ) {
 
   if (!auth.currentUser) {
+
     throw new Error(
       "Admin login required."
     );
+
   }
 
   return await deleteDoc(
@@ -266,440 +376,25 @@ export async function deleteAPK(
 
 
 // ============================================================
-// DIRECT APK UPLOAD
-// PC FILE → FIREBASE STORAGE → DOWNLOAD URL
-// ============================================================
-
-export async function uploadAPK(
-  file,
-  folder = "apk-files",
-  onProgress = null
-) {
-
-  // Admin login check
-  if (!auth.currentUser) {
-
-    throw new Error(
-      "Admin login required before uploading APK."
-    );
-
-  }
-
-
-  // File check
-  if (!file) {
-
-    throw new Error(
-      "Please select an APK file."
-    );
-
-  }
-
-
-  // APK extension check
-  if (
-    !file.name
-      .toLowerCase()
-      .endsWith(".apk")
-  ) {
-
-    throw new Error(
-      "Only .apk files are allowed."
-    );
-
-  }
-
-
-  // Maximum 500 MB
-  const maxSize =
-    500 * 1024 * 1024;
-
-  if (
-    file.size >
-    maxSize
-  ) {
-
-    throw new Error(
-      "APK file must be smaller than 500 MB."
-    );
-
-  }
-
-
-  // Safe file name
-  const safeName =
-    file.name.replace(
-      /[^a-zA-Z0-9.-]/g,
-      "_"
-    );
-
-
-  // Unique storage path
-  const filePath =
-    `${folder}/${Date.now()}-${safeName}`;
-
-
-  // Firebase Storage reference
-  const storageRef =
-    ref(
-      storage,
-      filePath
-    );
-
-
-  // Resumable upload
-  const uploadTask =
-    uploadBytesResumable(
-      storageRef,
-      file,
-      {
-        contentType:
-          "application/vnd.android.package-archive"
-      }
-    );
-
-
-  // Return download URL after upload
-  return new Promise(
-    (
-      resolve,
-      reject
-    ) => {
-
-      uploadTask.on(
-
-        "state_changed",
-
-        snapshot => {
-
-          const progress =
-            (
-              snapshot.bytesTransferred /
-              snapshot.totalBytes
-            ) * 100;
-
-
-          if (
-            typeof onProgress ===
-            "function"
-          ) {
-
-            onProgress(
-              progress
-            );
-
-          }
-
-        },
-
-
-        error => {
-
-          console.error(
-            "APK Upload Error:",
-            error
-          );
-
-          reject(
-            error
-          );
-
-        },
-
-
-        async () => {
-
-          try {
-
-            const downloadUrl =
-              await getDownloadURL(
-                uploadTask.snapshot.ref
-              );
-
-
-            resolve(
-              downloadUrl
-            );
-
-          }
-          catch(error) {
-
-            reject(
-              error
-            );
-
-          }
-
-        }
-
-      );
-
-    }
-  );
-
-}
-
-
-// ============================================================
-// UPLOAD IMAGE
-// ============================================================
-
-export async function uploadImage(
-  file,
-  folder = "apk-images"
-) {
-
-  if (!auth.currentUser) {
-
-    throw new Error(
-      "Admin login required."
-    );
-
-  }
-
-
-  if (!file) {
-
-    throw new Error(
-      "No file selected."
-    );
-
-  }
-
-
-  if (
-    !file.type.startsWith(
-      "image/"
-    )
-  ) {
-
-    throw new Error(
-      "Only image files are allowed."
-    );
-
-  }
-
-
-  const safeName =
-    file.name.replace(
-      /[^a-zA-Z0-9.-]/g,
-      "_"
-    );
-
-
-  const path =
-    `${folder}/${Date.now()}-${safeName}`;
-
-
-  const storageRef =
-    ref(
-      storage,
-      path
-    );
-
-
-  await uploadBytes(
-    storageRef,
-    file
-  );
-
-
-  return await getDownloadURL(
-    storageRef
-  );
-
-}
-
-
-// ============================================================
-// UPLOAD MULTIPLE SCREENSHOTS
-// ============================================================
-
-export async function uploadScreenshots(
-  files
-) {
-
-  if (!auth.currentUser) {
-
-    throw new Error(
-      "Admin login required."
-    );
-
-  }
-
-
-  const urls = [];
-
-
-  for (
-    const file of files
-  ) {
-
-    const url =
-      await uploadImage(
-        file,
-        "screenshots"
-      );
-
-
-    urls.push(
-      url
-    );
-
-  }
-
-
-  return urls;
-
-}
-
-
-// ============================================================
-// DOWNLOAD TRACKING
+// INCREASE DOWNLOAD COUNT
 // ============================================================
 
 export async function trackDownload(
-  apkId
+  id
 ) {
 
-  const apkRef =
+  return await updateDoc(
     doc(
       db,
       "apks",
-      apkId
-    );
-
-
-  await updateDoc(
-    apkRef,
-    {
-
-      downloadCount:
-        increment(1),
-
-      lastDownloadAt:
-        serverTimestamp()
-
-    }
-  );
-
-
-  await addDoc(
-    collection(
-      db,
-      "downloads"
+      id
     ),
     {
 
-      apkId,
-
-      createdAt:
-        serverTimestamp()
+      downloadCount:
+        increment(1)
 
     }
   );
-
-}
-
-
-// ============================================================
-// VISITOR TRACKING
-// ============================================================
-
-export async function trackVisitor() {
-
-  const today =
-    new Date()
-      .toISOString()
-      .slice(
-        0,
-        10
-      );
-
-
-  const visitorRef =
-    doc(
-      db,
-      "analytics",
-      "main"
-    );
-
-
-  const todayRef =
-    doc(
-      db,
-      "analytics",
-      "days",
-      "dates",
-      today
-    );
-
-
-  await setDoc(
-    visitorRef,
-    {
-
-      totalVisitors:
-        increment(1),
-
-      updatedAt:
-        serverTimestamp()
-
-    },
-    {
-      merge: true
-    }
-  );
-
-
-  await setDoc(
-    todayRef,
-    {
-
-      visitors:
-        increment(1),
-
-      date: today,
-
-      updatedAt:
-        serverTimestamp()
-
-    },
-    {
-      merge: true
-    }
-  );
-
-}
-
-
-// ============================================================
-// GET ANALYTICS
-// ============================================================
-
-export async function getAnalytics() {
-
-  const snap =
-    await getDoc(
-      doc(
-        db,
-        "analytics",
-        "main"
-      )
-    );
-
-
-  if (
-    !snap.exists()
-  ) {
-
-    return {
-      totalVisitors: 0
-    };
-
-  }
-
-
-  return snap.data();
 
 }
