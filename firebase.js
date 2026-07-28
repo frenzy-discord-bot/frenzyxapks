@@ -37,22 +37,16 @@ import {
 // Replace these values with your Firebase project config
 // ============================================================
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-
-  apiKey: "YOUR_API_KEY",
-
-  authDomain:
-    "YOUR_PROJECT.firebaseapp.com",
-
-  projectId:
-    "YOUR_PROJECT_ID",
-
-  messagingSenderId:
-    "YOUR_MESSAGING_SENDER_ID",
-
-  appId:
-    "YOUR_APP_ID"
-
+  apiKey: "AIzaSyCSJFYHI20c4XBf4JNaTsRHNQbHbd63hoc",
+  authDomain: "frenzy-apks.firebaseapp.com",
+  databaseURL: "https://frenzy-apks-default-rtdb.firebaseio.com",
+  projectId: "frenzy-apks",
+  storageBucket: "frenzy-apks.firebasestorage.app",
+  messagingSenderId: "670031638962",
+  appId: "1:670031638962:web:75f7a606daa653283774ab",
+  measurementId: "G-ZJ0KG1T3W4"
 };
 
 
