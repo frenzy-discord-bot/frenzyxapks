@@ -1,7 +1,7 @@
 // ============================================================
 // FRENZY CHEATS - FIREBASE.JS
+// Firebase Auth + Firestore
 // Firebase Storage NOT USED
-// Firebase Auth + Firestore ONLY
 // ============================================================
 
 import { initializeApp } from
@@ -20,7 +20,6 @@ import {
   collection,
   addDoc,
   getDocs,
-  getDoc,
   doc,
   updateDoc,
   deleteDoc,
@@ -33,25 +32,40 @@ import {
 
 
 // ============================================================
-// FIREBASE CONFIG
-// Replace these values with your Firebase project config
+// YOUR FIREBASE CONFIG
 // ============================================================
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCSJFYHI20c4XBf4JNaTsRHNQbHbd63hoc",
-  authDomain: "frenzy-apks.firebaseapp.com",
-  databaseURL: "https://frenzy-apks-default-rtdb.firebaseio.com",
-  projectId: "frenzy-apks",
-  storageBucket: "frenzy-apks.firebasestorage.app",
-  messagingSenderId: "670031638962",
-  appId: "1:670031638962:web:75f7a606daa653283774ab",
-  measurementId: "G-ZJ0KG1T3W4"
+
+  apiKey:
+    "AIzaSyCSJFYHI20c4XBf4JNaTsRHNQbHbd63hoc",
+
+  authDomain:
+    "frenzy-apks.firebaseapp.com",
+
+  databaseURL:
+    "https://frenzy-apks-default-rtdb.firebaseio.com",
+
+  projectId:
+    "frenzy-apks",
+
+  storageBucket:
+    "frenzy-apks.firebasestorage.app",
+
+  messagingSenderId:
+    "670031638962",
+
+  appId:
+    "1:670031638962:web:75f7a606daa653283774ab",
+
+  measurementId:
+    "G-ZJ0KG1T3W4"
+
 };
 
 
 // ============================================================
-// INITIALIZE
+// INITIALIZE FIREBASE
 // ============================================================
 
 const app =
@@ -65,16 +79,17 @@ const db =
 
 
 // ============================================================
-// AUTH EXPORTS
+// EXPORT
 // ============================================================
 
 export {
+
   auth,
   db,
 
-  signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut
+
 };
 
 
@@ -88,9 +103,11 @@ export async function adminLogin(
 ) {
 
   if (!email || !password) {
+
     throw new Error(
-      "Email and password are required."
+      "Email and password required."
     );
+
   }
 
   return await signInWithEmailAndPassword(
@@ -120,27 +137,35 @@ export async function adminLogout() {
 export async function getAllAPKs() {
 
   const q = query(
+
     collection(
       db,
       "apks"
     ),
+
     orderBy(
       "createdAt",
       "desc"
     )
+
   );
+
 
   const snapshot =
     await getDocs(q);
 
+
   return snapshot.docs.map(
+
     item => ({
 
-      id: item.id,
+      id:
+        item.id,
 
       ...item.data()
 
     })
+
   );
 
 }
@@ -153,32 +178,44 @@ export async function getAllAPKs() {
 export async function getPublishedAPKs() {
 
   const q = query(
+
     collection(
       db,
       "apks"
     ),
+
     orderBy(
       "createdAt",
       "desc"
     )
+
   );
+
 
   const snapshot =
     await getDocs(q);
 
+
   return snapshot.docs
+
     .map(
+
       item => ({
 
-        id: item.id,
+        id:
+          item.id,
 
         ...item.data()
 
       })
+
     )
+
     .filter(
+
       item =>
         item.published === true
+
     );
 
 }
@@ -200,11 +237,14 @@ export async function addAPK(
 
   }
 
+
   return await addDoc(
+
     collection(
       db,
       "apks"
     ),
+
     {
 
       name:
@@ -241,8 +281,8 @@ export async function addAPK(
         Array.isArray(
           data.features
         )
-          ? data.features
-          : [],
+        ? data.features
+        : [],
 
       published:
         data.published === true,
@@ -260,6 +300,7 @@ export async function addAPK(
         serverTimestamp()
 
     }
+
   );
 
 }
@@ -282,12 +323,15 @@ export async function updateAPK(
 
   }
 
+
   return await updateDoc(
+
     doc(
       db,
       "apks",
       id
     ),
+
     {
 
       name:
@@ -324,8 +368,8 @@ export async function updateAPK(
         Array.isArray(
           data.features
         )
-          ? data.features
-          : [],
+        ? data.features
+        : [],
 
       published:
         data.published === true,
@@ -337,6 +381,7 @@ export async function updateAPK(
         serverTimestamp()
 
     }
+
   );
 
 }
@@ -358,19 +403,22 @@ export async function deleteAPK(
 
   }
 
+
   return await deleteDoc(
+
     doc(
       db,
       "apks",
       id
     )
+
   );
 
 }
 
 
 // ============================================================
-// INCREASE DOWNLOAD COUNT
+// DOWNLOAD COUNTER
 // ============================================================
 
 export async function trackDownload(
@@ -378,17 +426,20 @@ export async function trackDownload(
 ) {
 
   return await updateDoc(
+
     doc(
       db,
       "apks",
       id
     ),
+
     {
 
       downloadCount:
         increment(1)
 
     }
+
   );
 
 }
