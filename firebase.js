@@ -1,16 +1,16 @@
 // ============================================================
-// FRENZY CHEATS - FIREBASE CONFIG
+// FRENZY CHEATS - FIREBASE.JS
 // ============================================================
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCSJFYHI20c4XBf4JNaTsRHNQbHbd63hoc",
-  authDomain: "frenzy-apks.firebaseapp.com",
-  databaseURL: "https://frenzy-apks-default-rtdb.firebaseio.com",
-  projectId: "frenzy-apks",
-  storageBucket: "frenzy-apks.firebasestorage.app",
-  messagingSenderId: "670031638962",
-  appId: "1:670031638962:web:75f7a606daa653283774ab",
-  measurementId: "G-ZJ0KG1T3W4"
+    apiKey: "AIzaSyCSJFJHI20c4XBf4JNaTsRHNQbHbd63hoc",
+    authDomain: "frenzy-apks.firebaseapp.com",
+    databaseURL: "https://frenzy-apks-default-rtdb.firebaseio.com",
+    projectId: "frenzy-apks",
+    storageBucket: "frenzy-apks.firebasestorage.app",
+    messagingSenderId: "670031638962",
+    appId: "1:670031638962:web:75f7a606daa653283774ab",
+    measurementId: "G-ZJ0KG1T3W4"
 };
 
 
@@ -24,136 +24,148 @@ if (!firebase.apps.length) {
 
 
 // ============================================================
-// GLOBAL FIREBASE INSTANCES
-// IMPORTANT: Do NOT use variable name "auth"
-// This avoids "Cannot access auth before initialization"
+// SERVICES
 // ============================================================
 
 const frenzyAuth = firebase.auth();
-const frenzyDB = firebase.firestore();
 
+const db = firebase.firestore();
 
-// Make globally available
-
-window.frenzyAuth = frenzyAuth;
-window.frenzyDB = frenzyDB;
+const storage = firebase.storage();
 
 
 // ============================================================
 // ADMIN LOGIN
 // ============================================================
 
-window.adminLogin = async function(email, password) {
+async function adminLogin(email, password) {
 
     if (!email || !password) {
-        throw new Error(
-            "Please enter email and password."
-        );
+        throw new Error("Email and password are required.");
     }
 
-    return await frenzyAuth
-        .signInWithEmailAndPassword(
-            email.trim(),
-            password
-        );
-
-};
+    return await frenzyAuth.signInWithEmailAndPassword(
+        email.trim(),
+        password
+    );
+}
 
 
 // ============================================================
-// ADMIN LOGOUT
+// LOGOUT
 // ============================================================
 
-window.adminLogout = async function() {
-
+async function adminLogout() {
     await frenzyAuth.signOut();
-
-    window.location.reload();
-
-};
-
-
-// ============================================================
-// AUTH STATE
-// ============================================================
-
-window.checkAdminLogin = function(callback) {
-
-    return frenzyAuth.onAuthStateChanged(
-        callback
-    );
-
-};
-
-
-// ============================================================
-// GET ALL APKs
-// ============================================================
-
-window.getAllAPKs = async function() {
-
-    const snapshot = await frenzyDB
-        .collection("apks")
-        .orderBy(
-            "createdAt",
-            "desc"
-        )
-        .get();
-
-    return snapshot.docs.map(
-        doc => ({
-
-            id: doc.id,
-
-            ...doc.data()
-
-        })
-    );
-
-};
+}
 
 
 // ============================================================
 // ADD APK
 // ============================================================
 
-window.addAPK = async function(data) {
+async function addAPK(data) {
 
     if (!frenzyAuth.currentUser) {
-
-        throw new Error(
-            "Admin login required."
-        );
-
+        throw new Error("Admin login required.");
     }
 
-    return await frenzyDB
+    const apkData = {
+
+        name: data.name || "",
+
+        version: data.version || "",
+
+        category: data.category || "Android",
+
+        badge: data.badge || "AVAILABLE",
+
+        logoUrl: data.logoUrl || "",
+
+        downloadUrl: data.downloadUrl || "",
+
+        shortDescription:
+            data.shortDescription || "",
+
+        description:
+            data.description || "",
+
+        features:
+            Array.isArray(data.features)
+                ? data.features
+                : [],
+
+        published:
+            data.published === true,
+
+        downloadCount: 0,
+
+        createdAt:
+            firebase.firestore.FieldValue.serverTimestamp(),
+
+        updatedAt:
+            firebase.firestore.FieldValue.serverTimestamp()
+
+    };
+
+    const docRef = await db
         .collection("apks")
-        .add({
+        .add(apkData);
 
-            name:
-                data.name || "",
+    return docRef.id;
+}
 
-            version:
-                data.version || "",
 
-            category:
-                data.category || "Android",
+// ============================================================
+// GET ALL APKs
+// ============================================================
 
-            badge:
-                data.badge || "AVAILABLE",
+async function getAllAPKs() {
 
-            logoUrl:
-                data.logoUrl || "",
+    const snapshot = await db
+        .collection("apks")
+        .orderBy("createdAt", "desc")
+        .get();
 
-            downloadUrl:
-                data.downloadUrl || "",
+    return snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    }));
+}
 
-            description:
-                data.description || "",
+
+// ============================================================
+// UPDATE APK
+// ============================================================
+
+async function updateAPK(id, data) {
+
+    if (!frenzyAuth.currentUser) {
+        throw new Error("Admin login required.");
+    }
+
+    await db
+        .collection("apks")
+        .doc(id)
+        .update({
+
+            name: data.name || "",
+
+            version: data.version || "",
+
+            category: data.category || "Android",
+
+            badge: data.badge || "AVAILABLE",
+
+            logoUrl: data.logoUrl || "",
+
+            downloadUrl: data.downloadUrl || "",
 
             shortDescription:
                 data.shortDescription || "",
+
+            description:
+                data.description || "",
 
             features:
                 Array.isArray(data.features)
@@ -163,97 +175,97 @@ window.addAPK = async function(data) {
             published:
                 data.published === true,
 
-            downloadCount:
-                0,
-
-            createdAt:
-                firebase.firestore
-                .FieldValue
-                .serverTimestamp(),
-
             updatedAt:
-                firebase.firestore
-                .FieldValue
-                .serverTimestamp()
+                firebase.firestore.FieldValue.serverTimestamp()
 
         });
-
-};
-
-
-// ============================================================
-// UPDATE APK
-// ============================================================
-
-window.updateAPK = async function(
-    id,
-    data
-) {
-
-    if (!frenzyAuth.currentUser) {
-
-        throw new Error(
-            "Admin login required."
-        );
-
-    }
-
-    return await frenzyDB
-        .collection("apks")
-        .doc(id)
-        .update({
-
-            ...data,
-
-            updatedAt:
-                firebase.firestore
-                .FieldValue
-                .serverTimestamp()
-
-        });
-
-};
+}
 
 
 // ============================================================
 // DELETE APK
 // ============================================================
 
-window.deleteAPK = async function(id) {
+async function deleteAPK(id) {
 
     if (!frenzyAuth.currentUser) {
-
-        throw new Error(
-            "Admin login required."
-        );
-
+        throw new Error("Admin login required.");
     }
 
-    return await frenzyDB
+    await db
         .collection("apks")
         .doc(id)
         .delete();
-
-};
+}
 
 
 // ============================================================
-// DOWNLOAD COUNTER
+// UPLOAD LOGO TO FIREBASE STORAGE
 // ============================================================
 
-window.increaseDownloadCount =
-async function(id) {
+async function uploadAPKLogo(file) {
 
-    return await frenzyDB
-        .collection("apks")
-        .doc(id)
-        .update({
+    if (!frenzyAuth.currentUser) {
+        throw new Error("Admin login required.");
+    }
 
-            downloadCount:
-                firebase.firestore
-                .FieldValue
-                .increment(1)
+    if (!file) {
+        return "";
+    }
 
-        });
+    if (!file.type.startsWith("image/")) {
+        throw new Error("Please select a valid image.");
+    }
 
-};
+    if (file.size > 5 * 1024 * 1024) {
+        throw new Error("Image must be smaller than 5MB.");
+    }
+
+    const fileName =
+        "apk-logos/" +
+        Date.now() +
+        "-" +
+        file.name.replace(
+            /[^a-zA-Z0-9._-]/g,
+            "_"
+        );
+
+    const storageRef =
+        storage.ref().child(fileName);
+
+    await storageRef.put(file);
+
+    const downloadURL =
+        await storageRef.getDownloadURL();
+
+    return downloadURL;
+}
+
+
+// ============================================================
+// DOWNLOAD COUNT
+// ============================================================
+
+async function increaseDownloadCount(id) {
+
+    try {
+
+        await db
+            .collection("apks")
+            .doc(id)
+            .update({
+
+                downloadCount:
+                    firebase.firestore.FieldValue.increment(1)
+
+            });
+
+    } catch (error) {
+
+        console.error(
+            "Download count error:",
+            error
+        );
+
+    }
+}
