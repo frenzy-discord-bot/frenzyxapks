@@ -7,537 +7,396 @@
 
 <meta
 name="viewport"
-content="width=device-width,initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
-<title>FRENZY CHEATS - Admin</title>
+<title>FRENZY CHEATS - Admin Panel</title>
 
 <style>
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
+* {
+  box-sizing: border-box;
 }
 
-body{
+body {
 
-font-family:
-Inter,
-Arial,
-sans-serif;
+  margin: 0;
 
-background:#050505;
+  min-height: 100vh;
 
-color:#fff;
+  background:
+  radial-gradient(
+    circle at top left,
+    #211044,
+    transparent 35%
+  ),
+  #050812;
 
-min-height:100vh;
+  color: #e8edf7;
 
-}
-
-.hidden{
-display:none!important;
-}
-
-.login-page{
-
-min-height:100vh;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-padding:20px;
-
-background:
-radial-gradient(
-circle at center,
-rgba(255,23,79,.12),
-transparent 45%
-);
+  font-family:
+  Arial,
+  Helvetica,
+  sans-serif;
 
 }
 
-.login-box{
+.container {
 
-width:100%;
+  width: min(
+    1100px,
+    94%
+  );
 
-max-width:420px;
-
-background:#101010;
-
-padding:35px;
-
-border-radius:22px;
-
-border:
-1px solid
-rgba(255,23,79,.3);
-
-box-shadow:
-0 0 50px
-rgba(255,23,79,.1);
+  margin: 40px auto;
 
 }
 
-.logo{
+.card {
 
-font-size:26px;
+  background:
+  rgba(
+    15,
+    23,
+    42,
+    0.95
+  );
 
-font-weight:900;
+  border:
+  1px solid
+  #27324a;
 
-text-align:center;
+  border-radius:
+  20px;
 
-margin-bottom:10px;
+  padding:
+  25px;
+
+  margin-bottom:
+  25px;
+
+  box-shadow:
+  0 20px 60px
+  rgba(
+    0,
+    0,
+    0,
+    .35
+  );
 
 }
 
-.logo span{
+h1 {
 
-color:#ff174f;
+  text-align: center;
+
+  margin-bottom:
+  10px;
 
 }
 
-.login-box p{
+h1 span {
 
-text-align:center;
+  color:
+  #a855f7;
 
-color:#777;
+}
 
-margin-bottom:25px;
+.subtitle {
+
+  text-align:
+  center;
+
+  color:
+  #94a3b8;
+
+  margin-bottom:
+  30px;
 
 }
 
 input,
 textarea,
-select{
+select {
 
-width:100%;
+  width: 100%;
 
-padding:14px;
+  padding:
+  14px;
 
-margin-top:7px;
+  margin:
+  7px 0 15px;
 
-margin-bottom:15px;
+  background:
+  #080d18;
 
-background:#080808;
+  border:
+  1px solid
+  #29344d;
 
-color:#fff;
+  border-radius:
+  10px;
 
-border:
-1px solid
-rgba(255,255,255,.1);
+  color:
+  white;
 
-border-radius:10px;
-
-outline:none;
-
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-
-border-color:#ff174f;
+  outline:
+  none;
 
 }
 
-textarea{
+textarea {
 
-min-height:130px;
+  min-height:
+  100px;
 
-resize:vertical;
-
-}
-
-label{
-
-font-size:13px;
-
-color:#aaa;
+  resize:
+  vertical;
 
 }
 
-button{
+label {
 
-border:none;
+  display:
+  block;
 
-cursor:pointer;
+  color:
+  #cbd5e1;
 
-}
+  font-size:
+  14px;
 
-.btn{
-
-padding:13px 20px;
-
-border-radius:10px;
-
-font-weight:800;
-
-color:#fff;
-
-background:
-linear-gradient(
-135deg,
-#ff174f,
-#b00035
-);
+  font-weight:
+  bold;
 
 }
 
-.btn:hover{
+button {
 
-box-shadow:
-0 0 25px
-rgba(255,23,79,.4);
+  border:
+  none;
 
-}
+  border-radius:
+  10px;
 
-.btn-secondary{
+  padding:
+  13px 20px;
 
-background:#191919;
+  cursor:
+  pointer;
 
-border:
-1px solid
-rgba(255,255,255,.1);
+  font-weight:
+  bold;
 
-}
-
-.dashboard{
-
-display:none;
+  color:
+  white;
 
 }
 
-.topbar{
+.primary {
 
-position:sticky;
-
-top:0;
-
-z-index:100;
-
-background:
-rgba(5,5,5,.9);
-
-backdrop-filter:
-blur(15px);
-
-border-bottom:
-1px solid
-rgba(255,255,255,.08);
-
-padding:
-18px 25px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
+  background:
+  linear-gradient(
+    135deg,
+    #7c3aed,
+    #ec4899
+  );
 
 }
 
-.topbar strong{
+.secondary {
 
-font-size:20px;
-
-}
-
-.topbar span{
-
-color:#ff174f;
+  background:
+  #1e293b;
 
 }
 
-.container{
+.danger {
 
-max-width:1250px;
-
-margin:auto;
-
-padding:
-30px 20px;
+  background:
+  #dc2626;
 
 }
 
-.stats{
+.success {
 
-display:grid;
-
-grid-template-columns:
-repeat(4,1fr);
-
-gap:15px;
-
-margin-bottom:30px;
+  background:
+  #059669;
 
 }
 
-.stat{
+.hidden {
 
-padding:25px;
-
-background:#101010;
-
-border:
-1px solid
-rgba(255,255,255,.07);
-
-border-radius:17px;
+  display:
+  none !important;
 
 }
 
-.stat h2{
+.grid {
 
-color:#ff174f;
+  display:
+  grid;
 
-font-size:30px;
+  grid-template-columns:
+  repeat(
+    2,
+    1fr
+  );
 
-margin-top:8px;
-
-}
-
-.stat p{
-
-color:#777;
-
-}
-
-.panel{
-
-background:#101010;
-
-padding:25px;
-
-border-radius:18px;
-
-border:
-1px solid
-rgba(255,255,255,.07);
-
-margin-bottom:25px;
+  gap:
+  15px;
 
 }
 
-.panel h2{
+@media(
+  max-width: 700px
+) {
 
-margin-bottom:20px;
+  .grid {
 
-}
+    grid-template-columns:
+    1fr;
 
-.form-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(2,1fr);
-
-gap:15px;
+  }
 
 }
 
-.full{
+.header {
 
-grid-column:
-1/-1;
+  display:
+  flex;
 
-}
+  justify-content:
+  space-between;
 
-.actions{
+  align-items:
+  center;
 
-display:flex;
+  gap:
+  15px;
 
-gap:10px;
-
-flex-wrap:wrap;
-
-}
-
-.table-wrap{
-
-overflow:auto;
+  margin-bottom:
+  25px;
 
 }
 
-table{
+.apk-item {
 
-width:100%;
+  display:
+  flex;
 
-border-collapse:
-collapse;
+  gap:
+  15px;
 
-min-width:800px;
+  align-items:
+  center;
 
-}
+  padding:
+  15px;
 
-th,
-td{
+  background:
+  #0b1220;
 
-padding:14px;
+  border:
+  1px solid
+  #26334c;
 
-border-bottom:
-1px solid
-rgba(255,255,255,.07);
+  border-radius:
+  15px;
 
-text-align:left;
-
-}
-
-th{
-
-color:#ff5478;
-
-}
-
-.apk-thumb{
-
-width:55px;
-
-height:55px;
-
-object-fit:cover;
-
-border-radius:10px;
+  margin-top:
+  12px;
 
 }
 
-.small-btn{
+.apk-item img {
 
-padding:8px 12px;
+  width:
+  65px;
 
-border-radius:8px;
+  height:
+  65px;
 
-color:#fff;
+  object-fit:
+  cover;
 
-background:#181818;
-
-border:
-1px solid
-rgba(255,255,255,.1);
-
-}
-
-.small-btn.delete{
-
-color:#ff5478;
+  border-radius:
+  12px;
 
 }
 
-.status{
+.apk-info {
 
-padding:5px 8px;
-
-border-radius:6px;
-
-font-size:11px;
-
-background:
-rgba(255,255,255,.06);
+  flex:
+  1;
 
 }
 
-.status.live{
+.apk-info h3 {
 
-color:#5cff91;
-
-}
-
-#message{
-
-margin-bottom:15px;
-
-padding:12px;
-
-border-radius:10px;
-
-display:none;
+  margin:
+  0 0 5px;
 
 }
 
-#message.success{
+.apk-info p {
 
-display:block;
+  margin:
+  3px 0;
 
-background:
-rgba(0,255,100,.1);
+  color:
+  #94a3b8;
 
-color:#5cff91;
-
-}
-
-#message.error{
-
-display:block;
-
-background:
-rgba(255,0,60,.1);
-
-color:#ff5478;
+  font-size:
+  13px;
 
 }
 
-.preview{
+.actions {
 
-display:flex;
+  display:
+  flex;
 
-gap:10px;
+  gap:
+  8px;
 
-flex-wrap:wrap;
-
-margin-bottom:15px;
-
-}
-
-.preview img{
-
-width:80px;
-
-height:80px;
-
-object-fit:cover;
-
-border-radius:8px;
+  flex-wrap:
+  wrap;
 
 }
 
-@media(max-width:850px){
+.status {
 
-.stats{
+  display:
+  inline-block;
 
-grid-template-columns:
-repeat(2,1fr);
+  padding:
+  5px 9px;
 
-}
+  border-radius:
+  20px;
 
-.form-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.full{
-
-grid-column:auto;
+  font-size:
+  11px;
 
 }
 
-}
+.online {
 
-@media(max-width:500px){
+  background:
+  #064e3b;
 
-.stats{
-
-grid-template-columns:1fr;
-
-}
-
-.topbar{
-
-padding:15px;
+  color:
+  #34d399;
 
 }
+
+.offline {
+
+  background:
+  #450a0a;
+
+  color:
+  #f87171;
 
 }
 
@@ -547,29 +406,22 @@ padding:15px;
 
 <body>
 
+<div class="container">
 
-<!-- ========================================================
-LOGIN
-========================================================= -->
 
-<section
-id="loginPage"
-class="login-page">
-
-<div class="login-box">
-
-<div class="logo">
-FRENZY <span>CHEATS</span>
-</div>
-
-<p>
-Admin Panel
-</p>
+<!-- LOGIN -->
 
 <div
-id="loginMessage"
-style="color:#ff5478;margin-bottom:15px">
-</div>
+id="loginBox"
+class="card">
+
+<h1>
+FRENZY <span>CHEATS</span>
+</h1>
+
+<p class="subtitle">
+Admin Panel
+</p>
 
 <label>
 Admin Email
@@ -590,135 +442,91 @@ type="password"
 placeholder="Password">
 
 <button
-id="loginBtn"
-class="btn"
-style="width:100%">
+class="primary"
+id="loginBtn">
+
 LOGIN
+
 </button>
+
+<p
+id="loginMessage">
+</p>
 
 </div>
 
-</section>
+
+<!-- ADMIN -->
+
+<div
+id="adminBox"
+class="hidden">
 
 
-<!-- ========================================================
-DASHBOARD
-========================================================= -->
+<div class="header">
 
-<section
-id="dashboard"
-class="dashboard">
-
-<header class="topbar">
-
-<strong>
+<h1>
 FRENZY <span>CHEATS</span>
-</strong>
+</h1>
 
 <button
-id="logoutBtn"
-class="btn btn-secondary">
+class="danger"
+id="logoutBtn">
+
 LOGOUT
+
 </button>
-
-</header>
-
-
-<main class="container">
-
-
-<!-- STATS -->
-
-<div class="stats">
-
-<div class="stat">
-
-<p>Total APKs</p>
-
-<h2 id="statAPKs">
-0
-</h2>
-
-</div>
-
-<div class="stat">
-
-<p>Total Downloads</p>
-
-<h2 id="statDownloads">
-0
-</h2>
-
-</div>
-
-<div class="stat">
-
-<p>Total Visitors</p>
-
-<h2 id="statVisitors">
-0
-</h2>
-
-</div>
-
-<div class="stat">
-
-<p>Published APKs</p>
-
-<h2 id="statPublished">
-0
-</h2>
-
-</div>
 
 </div>
 
 
 <!-- ADD / EDIT -->
 
-<div class="panel">
+<div class="card">
 
 <h2 id="formTitle">
 Add New APK
 </h2>
 
-<div
-id="message">
-</div>
 
-<form id="apkForm">
-
-<div class="form-grid">
+<div class="grid">
 
 
 <div>
 
 <label>
-APK Name *
+APK Name
 </label>
 
 <input
 id="name"
-required
-placeholder="Example App">
+placeholder="Example APK">
 
-</div>
-
-
-<div>
 
 <label>
 Category
 </label>
 
-<input
-id="category"
-placeholder="Gaming">
+<select id="category">
 
-</div>
+<option>
+Android
+</option>
 
+<option>
+Free Fire MAX
+</option>
 
-<div>
+<option>
+Game
+</option>
+
+<option>
+Tools
+</option>
+
+</select>
+
 
 <label>
 Version
@@ -726,7 +534,37 @@ Version
 
 <input
 id="version"
-placeholder="1.0.0">
+placeholder="v1.0.0">
+
+
+<label>
+Logo / Image URL
+</label>
+
+<input
+id="logoUrl"
+type="url"
+placeholder="https://example.com/logo.png">
+
+
+<label>
+Direct APK Download URL
+</label>
+
+<input
+id="downloadUrl"
+type="url"
+placeholder="https://example.com/file.apk">
+
+
+<label>
+Telegram Mirror URL
+</label>
+
+<input
+id="telegramUrl"
+type="url"
+placeholder="https://t.me/...">
 
 </div>
 
@@ -734,17 +572,22 @@ placeholder="1.0.0">
 <div>
 
 <label>
-File Size
+Badge
 </label>
 
 <input
-id="fileSize"
-placeholder="100 MB">
-
-</div>
+id="badge"
+placeholder="Official APK">
 
 
-<div class="full">
+<label>
+Compatibility
+</label>
+
+<input
+id="compatibility"
+placeholder="Android 7+">
+
 
 <label>
 Short Description
@@ -752,12 +595,8 @@ Short Description
 
 <input
 id="shortDescription"
-placeholder="Short APK description">
+placeholder="Short description">
 
-</div>
-
-
-<div class="full">
 
 <label>
 Full Description
@@ -765,228 +604,124 @@ Full Description
 
 <textarea
 id="description"
-placeholder="Write full APK information here...">
+placeholder="Write complete APK description...">
+</textarea>
+
+
+<label>
+Features
+</label>
+
+<textarea
+id="features"
+placeholder="Feature 1
+Feature 2
+Feature 3
+Feature 4">
 </textarea>
 
 </div>
 
+</div>
 
-<div class="full">
 
 <label>
-Download URL *
-</label>
 
 <input
-id="downloadUrl"
-type="url"
-required
-placeholder="https://example.com/file.apk">
+id="published"
+type="checkbox"
+style="width:auto">
 
-</div>
+ Publish on Website
 
+</label>
 
-<div>
 
 <label>
-APK Main Image
-</label>
 
 <input
-id="imageFile"
-type="file"
-accept="image/*">
+id="featured"
+type="checkbox"
+style="width:auto">
 
-</div>
-
-
-<div>
-
-<label>
-Screenshots
-</label>
-
-<input
-id="screenshotFiles"
-type="file"
-accept="image/*"
-multiple>
-
-</div>
-
-
-<div>
-
-<label>
-Publish
+ Featured APK
 
 </label>
 
-<select id="published">
 
-<option value="true">
-Published
-</option>
+<br>
 
-<option value="false">
-Unpublished
-</option>
-
-</select>
-
-</div>
-
-
-<div>
-
-<label>
-Featured
-
-</label>
-
-<select id="featured">
-
-<option value="false">
-No
-</option>
-
-<option value="true">
-Yes
-</option>
-
-</select>
-
-</div>
-
-
-<div class="full">
-
-<div
-id="preview"
-class="preview">
-</div>
-
-</div>
-
-
-<div class="full actions">
 
 <button
-type="submit"
-class="btn"
+class="primary"
 id="saveBtn">
 
-SAVE APK
+PUBLISH APK
 
 </button>
+
 
 <button
-type="button"
-class="btn btn-secondary"
+class="secondary hidden"
 id="cancelBtn">
 
-CLEAR
+CANCEL EDIT
 
 </button>
 
-</div>
 
-
-</div>
-
-</form>
+<p
+id="saveMessage">
+</p>
 
 </div>
 
 
 <!-- APK LIST -->
 
-<div class="panel">
+<div class="card">
 
 <h2>
 Manage APKs
 </h2>
 
-<div class="table-wrap">
+<div
+id="apkList">
 
-<table>
-
-<thead>
-
-<tr>
-
-<th>Image</th>
-
-<th>Name</th>
-
-<th>Category</th>
-
-<th>Downloads</th>
-
-<th>Status</th>
-
-<th>Actions</th>
-
-</tr>
-
-</thead>
-
-<tbody id="apkTable">
-
-<tr>
-
-<td colspan="6">
 Loading...
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
 
 </div>
 
 </div>
 
 
-</main>
+</div>
 
-</section>
+</div>
 
 
 <script type="module">
 
 import {
 
-auth,
+  auth,
 
-signInWithEmailAndPassword,
+  adminLogin,
 
-onAuthStateChanged,
+  adminLogout,
 
-signOut,
+  onAuthStateChanged,
 
-getAllAPKs,
+  getAllAPKs,
 
-addAPK,
+  addAPK,
 
-updateAPK,
+  updateAPK,
 
-deleteAPK,
+  deleteAPK
 
-uploadImage,
+} from "./firebase.js";
 
-uploadScreenshots,
-
-getAnalytics
-
-}
-
-from "./firebase.js";
-
-
-let apks = [];
 
 let editingId = null;
 
@@ -995,44 +730,24 @@ let editingId = null;
 // ELEMENTS
 // ============================================================
 
-const loginPage =
+const loginBox =
 document.getElementById(
-"loginPage"
+  "loginBox"
 );
 
-const dashboard =
+const adminBox =
 document.getElementById(
-"dashboard"
-);
-
-const loginBtn =
-document.getElementById(
-"loginBtn"
-);
-
-const logoutBtn =
-document.getElementById(
-"logoutBtn"
+  "adminBox"
 );
 
 const loginMessage =
 document.getElementById(
-"loginMessage"
+  "loginMessage"
 );
 
-const apkForm =
+const saveMessage =
 document.getElementById(
-"apkForm"
-);
-
-const apkTable =
-document.getElementById(
-"apkTable"
-);
-
-const message =
-document.getElementById(
-"message"
+  "saveMessage"
 );
 
 
@@ -1041,31 +756,34 @@ document.getElementById(
 // ============================================================
 
 onAuthStateChanged(
-auth,
-async user => {
+  auth,
+  user => {
 
-if(user){
+    if (user) {
 
-loginPage.style.display =
-"none";
+      loginBox.classList.add(
+        "hidden"
+      );
 
-dashboard.style.display =
-"block";
+      adminBox.classList.remove(
+        "hidden"
+      );
 
-await loadDashboard();
+      loadAPKs();
 
-}
-else{
+    } else {
 
-loginPage.style.display =
-"flex";
+      loginBox.classList.remove(
+        "hidden"
+      );
 
-dashboard.style.display =
-"none";
+      adminBox.classList.add(
+        "hidden"
+      );
 
-}
+    }
 
-}
+  }
 );
 
 
@@ -1073,296 +791,154 @@ dashboard.style.display =
 // LOGIN
 // ============================================================
 
-loginBtn.onclick =
-async () => {
+document
+.getElementById(
+  "loginBtn"
+)
+.addEventListener(
+  "click",
+  async () => {
 
-const email =
-document.getElementById(
-"email"
-).value.trim();
+    const email =
+    document.getElementById(
+      "email"
+    ).value.trim();
 
-const password =
-document.getElementById(
-"password"
-).value;
+    const password =
+    document.getElementById(
+      "password"
+    ).value;
 
-if(!email || !password){
+    try {
 
-loginMessage.textContent =
-"Enter email and password.";
+      loginMessage.textContent =
+      "Logging in...";
 
-return;
+      await adminLogin(
+        email,
+        password
+      );
 
-}
+      loginMessage.textContent =
+      "";
 
-try{
+    } catch(error) {
 
-loginBtn.disabled =
-true;
+      loginMessage.textContent =
+      error.message;
 
-loginBtn.textContent =
-"LOGGING IN...";
+    }
 
-await signInWithEmailAndPassword(
-auth,
-email,
-password
+  }
 );
-
-}
-catch(error){
-
-console.error(error);
-
-loginMessage.textContent =
-"Login failed: " +
-(error.message || "Unknown error");
-
-}
-finally{
-
-loginBtn.disabled =
-false;
-
-loginBtn.textContent =
-"LOGIN";
-
-}
-
-};
 
 
 // ============================================================
 // LOGOUT
 // ============================================================
 
-logoutBtn.onclick =
-async () => {
-
-await signOut(
-auth
-);
-
-};
-
-
-// ============================================================
-// LOAD DASHBOARD
-// ============================================================
-
-async function loadDashboard(){
-
-await loadAPKs();
-
-await loadAnalytics();
-
-}
-
-
-// ============================================================
-// LOAD APKs
-// ============================================================
-
-async function loadAPKs(){
-
-try{
-
-apks =
-await getAllAPKs();
-
-renderTable();
-
-updateStats();
-
-}
-catch(error){
-
-console.error(error);
-
-showMessage(
-"Could not load APKs.",
-"error"
-);
-
-}
-
-}
-
-
-// ============================================================
-// STATS
-// ============================================================
-
-function updateStats(){
-
-const totalDownloads =
-apks.reduce(
-(sum, apk) =>
-sum +
-(apk.downloadCount || 0),
-0
-);
-
-const published =
-apks.filter(
-apk =>
-apk.published === true
-).length;
-
-document.getElementById(
-"statAPKs"
-).textContent =
-apks.length;
-
-document.getElementById(
-"statDownloads"
-).textContent =
-totalDownloads;
-
-document.getElementById(
-"statPublished"
-).textContent =
-published;
-
-}
-
-
-// ============================================================
-// ANALYTICS
-// ============================================================
-
-async function loadAnalytics(){
-
-try{
-
-const analytics =
-await getAnalytics();
-
-document.getElementById(
-"statVisitors"
-).textContent =
-analytics.totalVisitors || 0;
-
-}
-catch(error){
-
-console.error(error);
-
-}
-
-}
-
-
-// ============================================================
-// RENDER TABLE
-// ============================================================
-
-function renderTable(){
-
-if(!apks.length){
-
-apkTable.innerHTML = `
-
-<tr>
-
-<td colspan="6">
-No APKs added yet.
-</td>
-
-</tr>
-
-`;
-
-return;
-
-}
-
-apkTable.innerHTML =
-apks
-.map(
-apk => `
-
-<tr>
-
-<td>
-
-<img
-class="apk-thumb"
-src="${escapeAttribute(
-apk.imageUrl ||
-"https://placehold.co/200x200/111/ff174f?text=APK"
-)}">
-
-</td>
-
-<td>
-
-<strong>
-${escapeHTML(
-apk.name || "Unnamed"
-)}
-</strong>
-
-</td>
-
-<td>
-
-${escapeHTML(
-apk.category || "Other"
-)}
-
-</td>
-
-<td>
-
-${apk.downloadCount || 0}
-
-</td>
-
-<td>
-
-<span
-class="status ${
-apk.published
-? "live"
-: ""
-}">
-
-${
-apk.published
-? "Published"
-: "Hidden"
-}
-
-</span>
-
-</td>
-
-<td>
-
-<button
-class="small-btn"
-onclick="window.editAPK('${apk.id}')">
-
-Edit
-
-</button>
-
-<button
-class="small-btn delete"
-onclick="window.removeAPK('${apk.id}')">
-
-Delete
-
-</button>
-
-</td>
-
-</tr>
-
-`
+document
+.getElementById(
+  "logoutBtn"
 )
-.join("");
+.addEventListener(
+  "click",
+  async () => {
+
+    await adminLogout();
+
+  }
+);
+
+
+// ============================================================
+// GET FORM DATA
+// ============================================================
+
+function getFormData() {
+
+  const featureText =
+  document.getElementById(
+    "features"
+  ).value;
+
+  const features =
+  featureText
+    .split("\n")
+    .map(
+      item =>
+      item.trim()
+    )
+    .filter(
+      item =>
+      item.length > 0
+    );
+
+  return {
+
+    name:
+    document.getElementById(
+      "name"
+    ).value.trim(),
+
+    category:
+    document.getElementById(
+      "category"
+    ).value,
+
+    version:
+    document.getElementById(
+      "version"
+    ).value.trim(),
+
+    logoUrl:
+    document.getElementById(
+      "logoUrl"
+    ).value.trim(),
+
+    downloadUrl:
+    document.getElementById(
+      "downloadUrl"
+    ).value.trim(),
+
+    telegramUrl:
+    document.getElementById(
+      "telegramUrl"
+    ).value.trim(),
+
+    compatibility:
+    document.getElementById(
+      "compatibility"
+    ).value.trim(),
+
+    badge:
+    document.getElementById(
+      "badge"
+    ).value.trim(),
+
+    shortDescription:
+    document.getElementById(
+      "shortDescription"
+    ).value.trim(),
+
+    description:
+    document.getElementById(
+      "description"
+    ).value.trim(),
+
+    features,
+
+    published:
+    document.getElementById(
+      "published"
+    ).checked,
+
+    featured:
+    document.getElementById(
+      "featured"
+    ).checked
+
+  };
 
 }
 
@@ -1371,523 +947,528 @@ Delete
 // SAVE APK
 // ============================================================
 
-apkForm.onsubmit =
-async event => {
+document
+.getElementById(
+  "saveBtn"
+)
+.addEventListener(
+  "click",
+  async () => {
 
-event.preventDefault();
-
-try{
-
-const name =
-document.getElementById(
-"name"
-).value.trim();
-
-const category =
-document.getElementById(
-"category"
-).value.trim();
-
-const version =
-document.getElementById(
-"version"
-).value.trim();
-
-const fileSize =
-document.getElementById(
-"fileSize"
-).value.trim();
-
-const shortDescription =
-document.getElementById(
-"shortDescription"
-).value.trim();
-
-const description =
-document.getElementById(
-"description"
-).value.trim();
-
-const downloadUrl =
-document.getElementById(
-"downloadUrl"
-).value.trim();
-
-const published =
-document.getElementById(
-"published"
-).value ===
-"true";
-
-const featured =
-document.getElementById(
-"featured"
-).value ===
-"true";
-
-const imageFile =
-document.getElementById(
-"imageFile"
-).files[0];
-
-const screenshotFiles =
-document.getElementById(
-"screenshotFiles"
-).files;
+    const data =
+    getFormData();
 
 
-if(!name){
+    if (!data.name) {
 
-showMessage(
-"APK name is required.",
-"error"
+      saveMessage.textContent =
+      "APK name is required.";
+
+      return;
+
+    }
+
+
+    if (!data.downloadUrl) {
+
+      saveMessage.textContent =
+      "APK download URL is required.";
+
+      return;
+
+    }
+
+
+    try {
+
+      saveMessage.textContent =
+      "Saving...";
+
+
+      if (editingId) {
+
+        await updateAPK(
+          editingId,
+          data
+        );
+
+        saveMessage.textContent =
+        "APK updated successfully.";
+
+      } else {
+
+        await addAPK(
+          data
+        );
+
+        saveMessage.textContent =
+        "APK added successfully.";
+
+      }
+
+
+      resetForm();
+
+      loadAPKs();
+
+    } catch(error) {
+
+      saveMessage.textContent =
+      error.message;
+
+    }
+
+  }
 );
 
-return;
+
+// ============================================================
+// LOAD APKs
+// ============================================================
+
+async function loadAPKs() {
+
+  const list =
+  document.getElementById(
+    "apkList"
+  );
+
+  try {
+
+    const apks =
+    await getAllAPKs();
+
+
+    if (!apks.length) {
+
+      list.innerHTML =
+      "<p>No APKs added yet.</p>";
+
+      return;
+
+    }
+
+
+    list.innerHTML =
+    "";
+
+
+    apks.forEach(
+      apk => {
+
+        const div =
+        document.createElement(
+          "div"
+        );
+
+        div.className =
+        "apk-item";
+
+
+        div.innerHTML = `
+
+          <img
+          src="${escapeHTML(
+            apk.logoUrl ||
+            "https://via.placeholder.com/100"
+          )}"
+          onerror="this.src='https://via.placeholder.com/100'"
+          >
+
+          <div class="apk-info">
+
+            <h3>
+              ${escapeHTML(
+                apk.name
+              )}
+            </h3>
+
+            <p>
+              ${escapeHTML(
+                apk.version || ""
+              )}
+            </p>
+
+            <p>
+              Downloads:
+              ${apk.downloadCount || 0}
+            </p>
+
+            <span class="status ${
+              apk.published
+              ? "online"
+              : "offline"
+            }">
+
+              ${
+                apk.published
+                ? "PUBLISHED"
+                : "HIDDEN"
+              }
+
+            </span>
+
+          </div>
+
+          <div class="actions">
+
+            <button
+            class="secondary"
+            data-edit="${apk.id}">
+
+            EDIT
+
+            </button>
+
+            <button
+            class="danger"
+            data-delete="${apk.id}">
+
+            DELETE
+
+            </button>
+
+          </div>
+
+        `;
+
+
+        list.appendChild(
+          div
+        );
+
+      }
+    );
+
+
+    document
+    .querySelectorAll(
+      "[data-edit]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            const apk =
+            apks.find(
+              item =>
+              item.id ===
+              button.dataset.edit
+            );
+
+            editAPK(
+              apk
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+    document
+    .querySelectorAll(
+      "[data-delete]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          async () => {
+
+            if (
+              !confirm(
+                "Delete this APK?"
+              )
+            ) return;
+
+
+            try {
+
+              await deleteAPK(
+                button.dataset.delete
+              );
+
+              loadAPKs();
+
+            } catch(error) {
+
+              alert(
+                error.message
+              );
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+
+  } catch(error) {
+
+    list.innerHTML =
+    `<p>${escapeHTML(
+      error.message
+    )}</p>`;
+
+  }
 
 }
-
-
-if(!downloadUrl){
-
-showMessage(
-"Download URL is required.",
-"error"
-);
-
-return;
-
-}
-
-
-const saveBtn =
-document.getElementById(
-"saveBtn"
-);
-
-saveBtn.disabled =
-true;
-
-saveBtn.textContent =
-"UPLOADING...";
-
-
-let imageUrl = "";
-
-
-// Existing image during edit
-
-if(editingId){
-
-const oldAPK =
-apks.find(
-item =>
-item.id ===
-editingId
-);
-
-imageUrl =
-oldAPK?.imageUrl ||
-"";
-
-}
-
-
-// New image
-
-if(imageFile){
-
-imageUrl =
-await uploadImage(
-imageFile,
-"apk-images"
-);
-
-}
-
-
-// Screenshots
-
-let screenshots = [];
-
-if(editingId){
-
-const oldAPK =
-apks.find(
-item =>
-item.id ===
-editingId
-);
-
-screenshots =
-oldAPK?.screenshots ||
-[];
-
-}
-
-
-if(
-screenshotFiles &&
-screenshotFiles.length
-){
-
-const newScreenshots =
-await uploadScreenshots(
-screenshotFiles
-);
-
-screenshots =
-[
-...screenshots,
-...newScreenshots
-];
-
-}
-
-
-const data = {
-
-name,
-
-category,
-
-version,
-
-fileSize,
-
-shortDescription,
-
-description,
-
-downloadUrl,
-
-imageUrl,
-
-screenshots,
-
-published,
-
-featured
-
-};
-
-
-if(editingId){
-
-await updateAPK(
-editingId,
-data
-);
-
-showMessage(
-"APK updated successfully.",
-"success"
-);
-
-}
-else{
-
-await addAPK(
-data
-);
-
-showMessage(
-"APK added successfully.",
-"success"
-);
-
-}
-
-
-clearForm();
-
-await loadAPKs();
-
-}
-catch(error){
-
-console.error(error);
-
-showMessage(
-"Error: " +
-(error.message ||
-"Could not save APK."),
-"error"
-);
-
-}
-finally{
-
-const saveBtn =
-document.getElementById(
-"saveBtn"
-);
-
-saveBtn.disabled =
-false;
-
-saveBtn.textContent =
-"SAVE APK";
-
-}
-
-};
 
 
 // ============================================================
 // EDIT APK
 // ============================================================
 
-window.editAPK =
-function(id){
+function editAPK(
+  apk
+) {
 
-const apk =
-apks.find(
-item =>
-item.id === id
-);
-
-if(!apk)
-return;
-
-editingId =
-id;
-
-document.getElementById(
-"formTitle"
-).textContent =
-"Edit APK";
-
-document.getElementById(
-"name"
-).value =
-apk.name || "";
-
-document.getElementById(
-"category"
-).value =
-apk.category || "";
-
-document.getElementById(
-"version"
-).value =
-apk.version || "";
-
-document.getElementById(
-"fileSize"
-).value =
-apk.fileSize || "";
-
-document.getElementById(
-"shortDescription"
-).value =
-apk.shortDescription || "";
-
-document.getElementById(
-"description"
-).value =
-apk.description || "";
-
-document.getElementById(
-"downloadUrl"
-).value =
-apk.downloadUrl || "";
-
-document.getElementById(
-"published"
-).value =
-String(
-apk.published !== false
-);
-
-document.getElementById(
-"featured"
-).value =
-String(
-apk.featured === true
-);
-
-document.getElementById(
-"preview"
-).innerHTML =
-
-apk.imageUrl
-?
-
-`<img src="${escapeAttribute(
-apk.imageUrl
-)}">`
-
-:
-
-"";
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-};
+  editingId =
+  apk.id;
 
 
-// ============================================================
-// DELETE APK
-// ============================================================
-
-window.removeAPK =
-async function(id){
-
-const apk =
-apks.find(
-item =>
-item.id === id
-);
-
-if(!apk)
-return;
-
-const confirmed =
-confirm(
-`Delete "${apk.name}"? This cannot be undone.`
-);
-
-if(!confirmed)
-return;
-
-try{
-
-await deleteAPK(
-id
-);
-
-showMessage(
-"APK deleted.",
-"success"
-);
-
-await loadAPKs();
-
-}
-catch(error){
-
-console.error(error);
-
-showMessage(
-"Delete failed.",
-"error"
-);
-
-}
-
-};
+  document
+  .getElementById(
+    "formTitle"
+  )
+  .textContent =
+  "Edit APK";
 
 
-// ============================================================
-// CLEAR FORM
-// ============================================================
+  document
+  .getElementById(
+    "saveBtn"
+  )
+  .textContent =
+  "UPDATE APK";
 
-function clearForm(){
 
-editingId =
-null;
+  document
+  .getElementById(
+    "cancelBtn"
+  )
+  .classList.remove(
+    "hidden"
+  );
 
-apkForm.reset();
 
-document.getElementById(
-"formTitle"
-).textContent =
-"Add New APK";
+  document
+  .getElementById(
+    "name"
+  ).value =
+  apk.name || "";
 
-document.getElementById(
-"preview"
-).innerHTML =
-"";
+
+  document
+  .getElementById(
+    "category"
+  ).value =
+  apk.category || "Android";
+
+
+  document
+  .getElementById(
+    "version"
+  ).value =
+  apk.version || "";
+
+
+  document
+  .getElementById(
+    "logoUrl"
+  ).value =
+  apk.logoUrl || "";
+
+
+  document
+  .getElementById(
+    "downloadUrl"
+  ).value =
+  apk.downloadUrl || "";
+
+
+  document
+  .getElementById(
+    "telegramUrl"
+  ).value =
+  apk.telegramUrl || "";
+
+
+  document
+  .getElementById(
+    "compatibility"
+  ).value =
+  apk.compatibility || "";
+
+
+  document
+  .getElementById(
+    "badge"
+  ).value =
+  apk.badge || "";
+
+
+  document
+  .getElementById(
+    "shortDescription"
+  ).value =
+  apk.shortDescription || "";
+
+
+  document
+  .getElementById(
+    "description"
+  ).value =
+  apk.description || "";
+
+
+  document
+  .getElementById(
+    "features"
+  ).value =
+  (
+    apk.features || []
+  ).join(
+    "\n"
+  );
+
+
+  document
+  .getElementById(
+    "published"
+  ).checked =
+  apk.published === true;
+
+
+  document
+  .getElementById(
+    "featured"
+  ).checked =
+  apk.featured === true;
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 
 }
 
 
 // ============================================================
-// CLEAR BUTTON
+// RESET FORM
 // ============================================================
 
-document.getElementById(
-"cancelBtn"
-).onclick =
-clearForm;
+function resetForm() {
+
+  editingId =
+  null;
 
 
-// ============================================================
-// MESSAGE
-// ============================================================
+  document
+  .getElementById(
+    "formTitle"
+  )
+  .textContent =
+  "Add New APK";
 
-function showMessage(
-text,
-type
-){
 
-message.textContent =
-text;
+  document
+  .getElementById(
+    "saveBtn"
+  )
+  .textContent =
+  "PUBLISH APK";
 
-message.className =
-type;
 
-setTimeout(
-() => {
+  document
+  .getElementById(
+    "cancelBtn"
+  )
+  .classList.add(
+    "hidden"
+  );
 
-message.className =
-"";
 
-message.textContent =
-"";
+  document
+  .querySelectorAll(
+    "input:not([type=checkbox]), textarea"
+  )
+  .forEach(
+    input =>
+    input.value = ""
+  );
 
-},
-4000
-);
+
+  document
+  .getElementById(
+    "published"
+  ).checked =
+  false;
+
+
+  document
+  .getElementById(
+    "featured"
+  ).checked =
+  false;
 
 }
 
 
 // ============================================================
-// ESCAPE
+// CANCEL EDIT
+// ============================================================
+
+document
+.getElementById(
+  "cancelBtn"
+)
+.addEventListener(
+  "click",
+  resetForm
+);
+
+
+// ============================================================
+// BASIC HTML ESCAPE
 // ============================================================
 
 function escapeHTML(
-value
-){
+  value
+) {
 
-return String(
-value || ""
-)
-.replace(
-/&/g,
-"&amp;"
-)
-.replace(
-/</g,
-"&lt;"
-)
-.replace(
-/>/g,
-"&gt;"
-)
-.replace(
-/"/g,
-"&quot;"
-)
-.replace(
-/'/g,
-"&#039;"
-);
-
-}
-
-function escapeAttribute(
-value
-){
-
-return escapeHTML(
-value
-);
+  return String(
+    value || ""
+  )
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /'/g,
+    "&#039;"
+  );
 
 }
 
