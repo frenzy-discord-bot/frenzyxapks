@@ -6,10 +6,12 @@
 <meta charset="UTF-8">
 
 <meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>FRENZY CHEATS - Admin Panel</title>
+
 
 <style>
 
@@ -24,28 +26,27 @@ body {
   min-height: 100vh;
 
   background:
-  radial-gradient(
-    circle at top left,
-    #211044,
-    transparent 35%
-  ),
-  #050812;
+    radial-gradient(
+      circle at top left,
+      #24104c,
+      transparent 35%
+    ),
+    #050812;
 
-  color: #e8edf7;
+  color: #ffffff;
 
   font-family:
-  Arial,
-  Helvetica,
-  sans-serif;
+    Arial,
+    Helvetica,
+    sans-serif;
 
 }
 
 .container {
 
-  width: min(
-    1100px,
-    94%
-  );
+  width: 95%;
+
+  max-width: 1100px;
 
   margin: 40px auto;
 
@@ -53,35 +54,17 @@ body {
 
 .card {
 
-  background:
-  rgba(
-    15,
-    23,
-    42,
-    0.95
-  );
+  background: #0d1525;
 
-  border:
-  1px solid
-  #27324a;
+  border: 1px solid #29344d;
 
-  border-radius:
-  20px;
+  border-radius: 20px;
 
-  padding:
-  25px;
-
-  margin-bottom:
-  25px;
+  padding: 30px;
 
   box-shadow:
-  0 20px 60px
-  rgba(
-    0,
-    0,
-    0,
-    .35
-  );
+    0 20px 60px
+    rgba(0,0,0,.4);
 
 }
 
@@ -89,28 +72,37 @@ h1 {
 
   text-align: center;
 
-  margin-bottom:
-  10px;
+  margin-top: 0;
 
 }
 
-h1 span {
+.logo-text {
 
-  color:
-  #a855f7;
+  color: #a855f7;
 
 }
 
 .subtitle {
 
-  text-align:
-  center;
+  text-align: center;
 
-  color:
-  #94a3b8;
+  color: #9ca9c2;
 
-  margin-bottom:
-  30px;
+  margin-bottom: 30px;
+
+}
+
+label {
+
+  display: block;
+
+  margin-top: 18px;
+
+  margin-bottom: 7px;
+
+  color: #cbd5e1;
+
+  font-weight: bold;
 
 }
 
@@ -120,283 +112,209 @@ select {
 
   width: 100%;
 
-  padding:
-  14px;
+  padding: 14px;
 
-  margin:
-  7px 0 15px;
+  border-radius: 10px;
 
-  background:
-  #080d18;
+  border: 1px solid #334155;
 
-  border:
-  1px solid
-  #29344d;
+  background: #070b14;
 
-  border-radius:
-  10px;
+  color: white;
 
-  color:
-  white;
+  font-size: 15px;
 
-  outline:
-  none;
+  outline: none;
 
 }
 
 textarea {
 
-  min-height:
-  100px;
+  min-height: 110px;
 
-  resize:
-  vertical;
+  resize: vertical;
 
 }
 
-label {
+input:focus,
+textarea:focus,
+select:focus {
 
-  display:
-  block;
-
-  color:
-  #cbd5e1;
-
-  font-size:
-  14px;
-
-  font-weight:
-  bold;
+  border-color: #a855f7;
 
 }
 
 button {
 
-  border:
-  none;
+  border: none;
 
-  border-radius:
-  10px;
+  border-radius: 10px;
 
-  padding:
-  13px 20px;
+  padding: 13px 20px;
 
-  cursor:
-  pointer;
+  cursor: pointer;
 
-  font-weight:
-  bold;
+  font-weight: bold;
 
-  color:
-  white;
+  color: white;
 
 }
 
-.primary {
+.login-btn,
+.save-btn {
+
+  width: 100%;
+
+  margin-top: 25px;
 
   background:
-  linear-gradient(
-    135deg,
-    #7c3aed,
-    #ec4899
-  );
+    linear-gradient(
+      90deg,
+      #7c3aed,
+      #ec4899
+    );
+
+  font-size: 16px;
 
 }
 
-.secondary {
+.logout-btn {
 
-  background:
-  #1e293b;
+  background: #dc2626;
 
-}
-
-.danger {
-
-  background:
-  #dc2626;
+  margin-bottom: 25px;
 
 }
 
-.success {
+.delete-btn {
 
-  background:
-  #059669;
-
-}
-
-.hidden {
-
-  display:
-  none !important;
+  background: #dc2626;
 
 }
 
-.grid {
+.edit-btn {
 
-  display:
-  grid;
-
-  grid-template-columns:
-  repeat(
-    2,
-    1fr
-  );
-
-  gap:
-  15px;
-
-}
-
-@media(
-  max-width: 700px
-) {
-
-  .grid {
-
-    grid-template-columns:
-    1fr;
-
-  }
-
-}
-
-.header {
-
-  display:
-  flex;
-
-  justify-content:
-  space-between;
-
-  align-items:
-  center;
-
-  gap:
-  15px;
-
-  margin-bottom:
-  25px;
-
-}
-
-.apk-item {
-
-  display:
-  flex;
-
-  gap:
-  15px;
-
-  align-items:
-  center;
-
-  padding:
-  15px;
-
-  background:
-  #0b1220;
-
-  border:
-  1px solid
-  #26334c;
-
-  border-radius:
-  15px;
-
-  margin-top:
-  12px;
-
-}
-
-.apk-item img {
-
-  width:
-  65px;
-
-  height:
-  65px;
-
-  object-fit:
-  cover;
-
-  border-radius:
-  12px;
-
-}
-
-.apk-info {
-
-  flex:
-  1;
-
-}
-
-.apk-info h3 {
-
-  margin:
-  0 0 5px;
-
-}
-
-.apk-info p {
-
-  margin:
-  3px 0;
-
-  color:
-  #94a3b8;
-
-  font-size:
-  13px;
-
-}
-
-.actions {
-
-  display:
-  flex;
-
-  gap:
-  8px;
-
-  flex-wrap:
-  wrap;
+  background: #7c3aed;
 
 }
 
 .status {
 
-  display:
-  inline-block;
+  margin-top: 15px;
 
-  padding:
-  5px 9px;
+  padding: 12px;
 
-  border-radius:
-  20px;
+  border-radius: 8px;
 
-  font-size:
-  11px;
+  display: none;
 
 }
 
-.online {
+.success {
 
-  background:
-  #064e3b;
+  display: block;
 
-  color:
-  #34d399;
+  background: #064e3b;
+
+  color: #6ee7b7;
 
 }
 
-.offline {
+.error {
 
-  background:
-  #450a0a;
+  display: block;
 
-  color:
-  #f87171;
+  background: #7f1d1d;
+
+  color: #fecaca;
+
+}
+
+#adminPanel {
+
+  display: none;
+
+}
+
+.grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(250px, 1fr)
+    );
+
+  gap: 15px;
+
+}
+
+.apk-list {
+
+  margin-top: 40px;
+
+}
+
+.apk-card {
+
+  background: #080e1b;
+
+  border: 1px solid #26344e;
+
+  border-radius: 15px;
+
+  padding: 20px;
+
+  margin-top: 15px;
+
+}
+
+.apk-card img {
+
+  width: 70px;
+
+  height: 70px;
+
+  object-fit: cover;
+
+  border-radius: 15px;
+
+  margin-bottom: 10px;
+
+}
+
+.apk-card h3 {
+
+  margin: 5px 0;
+
+}
+
+.apk-card p {
+
+  color: #9ca9c2;
+
+}
+
+.actions {
+
+  display: flex;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+}
+
+.actions button {
+
+  flex: 1;
+
+}
+
+.hidden {
+
+  display: none !important;
 
 }
 
@@ -404,89 +322,115 @@ button {
 
 </head>
 
+
 <body>
+
 
 <div class="container">
 
 
+<!-- ===================================================== -->
 <!-- LOGIN -->
+<!-- ===================================================== -->
 
 <div
-id="loginBox"
-class="card">
+  class="card"
+  id="loginScreen"
+>
 
 <h1>
-FRENZY <span>CHEATS</span>
+  FRENZY
+  <span class="logo-text">
+    CHEATS
+  </span>
 </h1>
 
-<p class="subtitle">
-Admin Panel
-</p>
+<div class="subtitle">
+  Admin Panel
+</div>
+
 
 <label>
-Admin Email
+  Admin Email
 </label>
 
 <input
-id="email"
-type="email"
-placeholder="admin@example.com">
+  type="email"
+  id="email"
+  placeholder="Enter admin email"
+>
+
 
 <label>
-Password
+  Password
 </label>
 
 <input
-id="password"
-type="password"
-placeholder="Password">
+  type="password"
+  id="password"
+  placeholder="Enter password"
+>
+
 
 <button
-class="primary"
-id="loginBtn">
-
-LOGIN
-
+  class="login-btn"
+  id="loginBtn"
+>
+  LOGIN
 </button>
 
-<p
-id="loginMessage">
-</p>
+
+<div
+  class="status"
+  id="loginStatus"
+></div>
 
 </div>
 
 
-<!-- ADMIN -->
+
+<!-- ===================================================== -->
+<!-- ADMIN PANEL -->
+<!-- ===================================================== -->
 
 <div
-id="adminBox"
-class="hidden">
-
-
-<div class="header">
+  class="card"
+  id="adminPanel"
+>
 
 <h1>
-FRENZY <span>CHEATS</span>
+  FRENZY
+  <span class="logo-text">
+    CHEATS
+  </span>
 </h1>
 
-<button
-class="danger"
-id="logoutBtn">
-
-LOGOUT
-
-</button>
-
+<div class="subtitle">
+  APK Download Manager
 </div>
 
 
-<!-- ADD / EDIT -->
+<button
+  class="logout-btn"
+  id="logoutBtn"
+>
+  LOGOUT
+</button>
 
-<div class="card">
 
-<h2 id="formTitle">
-Add New APK
+<!-- ===================================================== -->
+<!-- APK FORM -->
+<!-- ===================================================== -->
+
+<h2>
+  Add / Edit APK
 </h2>
+
+
+<input
+  type="hidden"
+  id="editingId"
+>
 
 
 <div class="grid">
@@ -495,30 +439,35 @@ Add New APK
 <div>
 
 <label>
-APK Name
+  APK Name
 </label>
 
 <input
-id="name"
-placeholder="Example APK">
+  id="apkName"
+  placeholder="Rapid Core APK"
+>
 
+</div>
+
+
+<div>
 
 <label>
-Category
+  Category
 </label>
 
-<select id="category">
+<select id="apkCategory">
 
 <option>
 Android
 </option>
 
 <option>
-Free Fire MAX
+Free Fire
 </option>
 
 <option>
-Game
+Free Fire MAX
 </option>
 
 <option>
@@ -527,44 +476,19 @@ Tools
 
 </select>
 
+</div>
+
+
+<div>
 
 <label>
-Version
+  Version
 </label>
 
 <input
-id="version"
-placeholder="v1.0.0">
-
-
-<label>
-Logo / Image URL
-</label>
-
-<input
-id="logoUrl"
-type="url"
-placeholder="https://example.com/logo.png">
-
-
-<label>
-Direct APK Download URL
-</label>
-
-<input
-id="downloadUrl"
-type="url"
-placeholder="https://example.com/file.apk">
-
-
-<label>
-Telegram Mirror URL
-</label>
-
-<input
-id="telegramUrl"
-type="url"
-placeholder="https://t.me/...">
+  id="apkVersion"
+  placeholder="v1.0.0"
+>
 
 </div>
 
@@ -572,121 +496,180 @@ placeholder="https://t.me/...">
 <div>
 
 <label>
-Badge
+  Logo Image URL
 </label>
 
 <input
-id="badge"
-placeholder="Official APK">
+  id="logoUrl"
+  placeholder="https://example.com/logo.png"
+>
 
+</div>
+
+
+<div>
 
 <label>
-Compatibility
+  Direct APK Download URL
 </label>
 
 <input
-id="compatibility"
-placeholder="Android 7+">
+  id="downloadUrl"
+  placeholder="https://example.com/app.apk"
+>
 
+</div>
+
+
+<div>
 
 <label>
-Short Description
+  Telegram URL
 </label>
 
 <input
-id="shortDescription"
-placeholder="Short description">
+  id="telegramUrl"
+  placeholder="https://t.me/yourchannel"
+>
+
+</div>
+
+
+<div>
+
+<label>
+  Compatibility
+</label>
+
+<input
+  id="compatibility"
+  placeholder="Android 7+"
+>
+
+</div>
+
+
+<div>
+
+<label>
+  Badge
+</label>
+
+<input
+  id="badge"
+  placeholder="Official APK"
+>
+
+</div>
+
+</div>
 
 
 <label>
-Full Description
+  Short Description
 </label>
 
 <textarea
-id="description"
-placeholder="Write complete APK description...">
-</textarea>
+  id="shortDescription"
+  placeholder="Short APK description..."
+></textarea>
 
 
 <label>
-Features
+  Full Description
 </label>
 
 <textarea
-id="features"
-placeholder="Feature 1
-Feature 2
-Feature 3
-Feature 4">
-</textarea>
-
-</div>
-
-</div>
+  id="description"
+  placeholder="Write complete APK details..."
+></textarea>
 
 
 <label>
-
-<input
-id="published"
-type="checkbox"
-style="width:auto">
-
- Publish on Website
-
+  Features
+  <small>
+    One feature per line
+  </small>
 </label>
 
+<textarea
+  id="features"
+  placeholder="Feature 1&#10;Feature 2&#10;Feature 3"
+></textarea>
+
+
+<div class="grid">
+
+<div>
 
 <label>
-
-<input
-id="featured"
-type="checkbox"
-style="width:auto">
-
- Featured APK
-
+  Published
 </label>
 
+<select id="published">
 
-<br>
+<option value="true">
+Yes
+</option>
 
+<option value="false">
+No
+</option>
 
-<button
-class="primary"
-id="saveBtn">
-
-PUBLISH APK
-
-</button>
-
-
-<button
-class="secondary hidden"
-id="cancelBtn">
-
-CANCEL EDIT
-
-</button>
-
-
-<p
-id="saveMessage">
-</p>
+</select>
 
 </div>
 
 
-<!-- APK LIST -->
+<div>
 
-<div class="card">
+<label>
+  Featured
+</label>
 
-<h2>
-Manage APKs
-</h2>
+<select id="featured">
+
+<option value="false">
+No
+</option>
+
+<option value="true">
+Yes
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<button
+  class="save-btn"
+  id="saveBtn"
+>
+  ADD APK
+</button>
+
 
 <div
-id="apkList">
+  class="status"
+  id="formStatus"
+></div>
+
+
+
+<!-- ===================================================== -->
+<!-- APK LIST -->
+<!-- ===================================================== -->
+
+<div class="apk-list">
+
+<h2>
+  Your APKs
+</h2>
+
+<div id="apkList">
 
 Loading...
 
@@ -697,250 +680,211 @@ Loading...
 
 </div>
 
+
 </div>
 
 
-<script type="module">
 
-import {
+<!-- ===================================================== -->
+<!-- FIREBASE SDK -->
+<!-- ===================================================== -->
 
-  auth,
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 
-  adminLogin,
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
-  adminLogout,
-
-  onAuthStateChanged,
-
-  getAllAPKs,
-
-  addAPK,
-
-  updateAPK,
-
-  deleteAPK
-
-} from "./firebase.js";
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 
-let editingId = null;
+<!-- YOUR FIREBASE FILE -->
+
+<script src="firebase.js"></script>
+
+
+
+<script>
 
 
 // ============================================================
 // ELEMENTS
 // ============================================================
 
-const loginBox =
-document.getElementById(
-  "loginBox"
-);
+const loginScreen =
+  document.getElementById(
+    "loginScreen"
+  );
 
-const adminBox =
-document.getElementById(
-  "adminBox"
-);
+const adminPanel =
+  document.getElementById(
+    "adminPanel"
+  );
 
-const loginMessage =
-document.getElementById(
-  "loginMessage"
-);
+const loginBtn =
+  document.getElementById(
+    "loginBtn"
+  );
 
-const saveMessage =
-document.getElementById(
-  "saveMessage"
-);
+const logoutBtn =
+  document.getElementById(
+    "logoutBtn"
+  );
 
+const loginStatus =
+  document.getElementById(
+    "loginStatus"
+  );
 
-// ============================================================
-// AUTH STATE
-// ============================================================
+const formStatus =
+  document.getElementById(
+    "formStatus"
+  );
 
-onAuthStateChanged(
-  auth,
-  user => {
-
-    if (user) {
-
-      loginBox.classList.add(
-        "hidden"
-      );
-
-      adminBox.classList.remove(
-        "hidden"
-      );
-
-      loadAPKs();
-
-    } else {
-
-      loginBox.classList.remove(
-        "hidden"
-      );
-
-      adminBox.classList.add(
-        "hidden"
-      );
-
-    }
-
-  }
-);
+const apkList =
+  document.getElementById(
+    "apkList"
+  );
 
 
 // ============================================================
 // LOGIN
 // ============================================================
 
-document
-.getElementById(
-  "loginBtn"
-)
-.addEventListener(
+loginBtn.addEventListener(
   "click",
   async () => {
 
     const email =
-    document.getElementById(
-      "email"
-    ).value.trim();
+      document
+        .getElementById("email")
+        .value
+        .trim();
 
     const password =
-    document.getElementById(
-      "password"
-    ).value;
+      document
+        .getElementById("password")
+        .value;
+
+
+    loginStatus.className =
+      "status";
+
+    loginStatus.style.display =
+      "block";
+
+    loginStatus.textContent =
+      "Logging in...";
+
 
     try {
-
-      loginMessage.textContent =
-      "Logging in...";
 
       await adminLogin(
         email,
         password
       );
 
-      loginMessage.textContent =
-      "";
+      showAdminPanel();
 
-    } catch(error) {
+    }
 
-      loginMessage.textContent =
-      error.message;
+    catch (error) {
+
+      console.error(error);
+
+      loginStatus.className =
+        "status error";
+
+      loginStatus.textContent =
+        "Login failed: " +
+        error.message;
 
     }
 
   }
+
 );
+
+
+// ============================================================
+// ENTER KEY LOGIN
+// ============================================================
+
+document
+  .getElementById("password")
+  .addEventListener(
+    "keydown",
+    event => {
+
+      if (
+        event.key === "Enter"
+      ) {
+
+        loginBtn.click();
+
+      }
+
+    }
+
+  );
 
 
 // ============================================================
 // LOGOUT
 // ============================================================
 
-document
-.getElementById(
-  "logoutBtn"
-)
-.addEventListener(
+logoutBtn.addEventListener(
   "click",
   async () => {
 
     await adminLogout();
 
   }
+
 );
 
 
 // ============================================================
-// GET FORM DATA
+// SHOW ADMIN
 // ============================================================
 
-function getFormData() {
+function showAdminPanel() {
 
-  const featureText =
-  document.getElementById(
-    "features"
-  ).value;
+  loginScreen.style.display =
+    "none";
 
-  const features =
-  featureText
-    .split("\n")
-    .map(
-      item =>
-      item.trim()
-    )
-    .filter(
-      item =>
-      item.length > 0
-    );
+  adminPanel.style.display =
+    "block";
 
-  return {
-
-    name:
-    document.getElementById(
-      "name"
-    ).value.trim(),
-
-    category:
-    document.getElementById(
-      "category"
-    ).value,
-
-    version:
-    document.getElementById(
-      "version"
-    ).value.trim(),
-
-    logoUrl:
-    document.getElementById(
-      "logoUrl"
-    ).value.trim(),
-
-    downloadUrl:
-    document.getElementById(
-      "downloadUrl"
-    ).value.trim(),
-
-    telegramUrl:
-    document.getElementById(
-      "telegramUrl"
-    ).value.trim(),
-
-    compatibility:
-    document.getElementById(
-      "compatibility"
-    ).value.trim(),
-
-    badge:
-    document.getElementById(
-      "badge"
-    ).value.trim(),
-
-    shortDescription:
-    document.getElementById(
-      "shortDescription"
-    ).value.trim(),
-
-    description:
-    document.getElementById(
-      "description"
-    ).value.trim(),
-
-    features,
-
-    published:
-    document.getElementById(
-      "published"
-    ).checked,
-
-    featured:
-    document.getElementById(
-      "featured"
-    ).checked
-
-  };
+  loadAPKs();
 
 }
+
+
+// ============================================================
+// AUTH STATE
+// ============================================================
+
+checkAdminLogin(
+  user => {
+
+    if (user) {
+
+      showAdminPanel();
+
+    }
+
+    else {
+
+      loginScreen.style.display =
+        "block";
+
+      adminPanel.style.display =
+        "none";
+
+    }
+
+  }
+
+);
 
 
 // ============================================================
@@ -948,78 +892,191 @@ function getFormData() {
 // ============================================================
 
 document
-.getElementById(
-  "saveBtn"
-)
-.addEventListener(
-  "click",
-  async () => {
+  .getElementById("saveBtn")
+  .addEventListener(
+    "click",
+    async () => {
 
-    const data =
-    getFormData();
-
-
-    if (!data.name) {
-
-      saveMessage.textContent =
-      "APK name is required.";
-
-      return;
-
-    }
+      const editingId =
+        document
+          .getElementById(
+            "editingId"
+          )
+          .value;
 
 
-    if (!data.downloadUrl) {
+      const data = {
 
-      saveMessage.textContent =
-      "APK download URL is required.";
+        name:
+          document
+            .getElementById(
+              "apkName"
+            )
+            .value
+            .trim(),
 
-      return;
+        category:
+          document
+            .getElementById(
+              "apkCategory"
+            )
+            .value,
 
-    }
+        version:
+          document
+            .getElementById(
+              "apkVersion"
+            )
+            .value
+            .trim(),
+
+        logoUrl:
+          document
+            .getElementById(
+              "logoUrl"
+            )
+            .value
+            .trim(),
+
+        downloadUrl:
+          document
+            .getElementById(
+              "downloadUrl"
+            )
+            .value
+            .trim(),
+
+        telegramUrl:
+          document
+            .getElementById(
+              "telegramUrl"
+            )
+            .value
+            .trim(),
+
+        compatibility:
+          document
+            .getElementById(
+              "compatibility"
+            )
+            .value
+            .trim(),
+
+        badge:
+          document
+            .getElementById(
+              "badge"
+            )
+            .value
+            .trim(),
+
+        shortDescription:
+          document
+            .getElementById(
+              "shortDescription"
+            )
+            .value
+            .trim(),
+
+        description:
+          document
+            .getElementById(
+              "description"
+            )
+            .value
+            .trim(),
+
+        features:
+          document
+            .getElementById(
+              "features"
+            )
+            .value
+            .split("\n")
+            .map(
+              x => x.trim()
+            )
+            .filter(Boolean),
+
+        published:
+          document
+            .getElementById(
+              "published"
+            )
+            .value === "true",
+
+        featured:
+          document
+            .getElementById(
+              "featured"
+            )
+            .value === "true"
+
+      };
 
 
-    try {
+      if (!data.name) {
 
-      saveMessage.textContent =
-      "Saving...";
-
-
-      if (editingId) {
-
-        await updateAPK(
-          editingId,
-          data
+        showFormStatus(
+          "APK name is required.",
+          false
         );
 
-        saveMessage.textContent =
-        "APK updated successfully.";
-
-      } else {
-
-        await addAPK(
-          data
-        );
-
-        saveMessage.textContent =
-        "APK added successfully.";
+        return;
 
       }
 
 
-      resetForm();
+      try {
 
-      loadAPKs();
+        if (editingId) {
 
-    } catch(error) {
+          await updateAPK(
+            editingId,
+            data
+          );
 
-      saveMessage.textContent =
-      error.message;
+          showFormStatus(
+            "APK updated successfully!",
+            true
+          );
+
+        }
+
+        else {
+
+          await addAPK(
+            data
+          );
+
+          showFormStatus(
+            "APK added successfully!",
+            true
+          );
+
+        }
+
+
+        clearForm();
+
+        loadAPKs();
+
+      }
+
+      catch (error) {
+
+        console.error(error);
+
+        showFormStatus(
+          error.message,
+          false
+        );
+
+      }
 
     }
 
-  }
-);
+  );
 
 
 // ============================================================
@@ -1028,104 +1085,101 @@ document
 
 async function loadAPKs() {
 
-  const list =
-  document.getElementById(
-    "apkList"
-  );
+  apkList.innerHTML =
+    "Loading...";
+
 
   try {
 
     const apks =
-    await getAllAPKs();
+      await getAllAPKs();
 
 
     if (!apks.length) {
 
-      list.innerHTML =
-      "<p>No APKs added yet.</p>";
+      apkList.innerHTML =
+        "No APKs found.";
 
       return;
 
     }
 
 
-    list.innerHTML =
-    "";
+    apkList.innerHTML =
+      "";
 
 
     apks.forEach(
       apk => {
 
-        const div =
-        document.createElement(
-          "div"
-        );
+        const card =
+          document.createElement(
+            "div"
+          );
 
-        div.className =
-        "apk-item";
+        card.className =
+          "apk-card";
 
 
-        div.innerHTML = `
+        card.innerHTML = `
 
-          <img
-          src="${escapeHTML(
-            apk.logoUrl ||
-            "https://via.placeholder.com/100"
-          )}"
-          onerror="this.src='https://via.placeholder.com/100'"
-          >
+          ${
+            apk.logoUrl
+            ?
+            `<img
+              src="${escapeHTML(
+                apk.logoUrl
+              )}"
+              alt="Logo"
+            >`
+            :
+            ""
+          }
 
-          <div class="apk-info">
+          <h3>
+            ${escapeHTML(
+              apk.name
+            )}
+          </h3>
 
-            <h3>
-              ${escapeHTML(
-                apk.name
-              )}
-            </h3>
+          <p>
+            ${escapeHTML(
+              apk.shortDescription ||
+              ""
+            )}
+          </p>
 
-            <p>
-              ${escapeHTML(
-                apk.version || ""
-              )}
-            </p>
+          <p>
+            Downloads:
+            ${
+              apk.downloadCount ||
+              0
+            }
+          </p>
 
-            <p>
-              Downloads:
-              ${apk.downloadCount || 0}
-            </p>
-
-            <span class="status ${
+          <p>
+            Status:
+            ${
               apk.published
-              ? "online"
-              : "offline"
-            }">
-
-              ${
-                apk.published
-                ? "PUBLISHED"
-                : "HIDDEN"
-              }
-
-            </span>
-
-          </div>
+              ? "Published"
+              : "Hidden"
+            }
+          </p>
 
           <div class="actions">
 
             <button
-            class="secondary"
-            data-edit="${apk.id}">
-
-            EDIT
-
+              class="edit-btn"
+              onclick="editAPK('${apk.id}')"
+            >
+              EDIT
             </button>
 
             <button
-            class="danger"
-            data-delete="${apk.id}">
-
-            DELETE
-
+              class="delete-btn"
+              onclick="removeAPK('${apk.id}')"
+            >
+              DELETE
             </button>
 
           </div>
@@ -1133,90 +1187,23 @@ async function loadAPKs() {
         `;
 
 
-        list.appendChild(
-          div
+        apkList.appendChild(
+          card
         );
 
       }
+
     );
 
+  }
 
-    document
-    .querySelectorAll(
-      "[data-edit]"
-    )
-    .forEach(
-      button => {
+  catch (error) {
 
-        button.addEventListener(
-          "click",
-          () => {
+    console.error(error);
 
-            const apk =
-            apks.find(
-              item =>
-              item.id ===
-              button.dataset.edit
-            );
-
-            editAPK(
-              apk
-            );
-
-          }
-        );
-
-      }
-    );
-
-
-    document
-    .querySelectorAll(
-      "[data-delete]"
-    )
-    .forEach(
-      button => {
-
-        button.addEventListener(
-          "click",
-          async () => {
-
-            if (
-              !confirm(
-                "Delete this APK?"
-              )
-            ) return;
-
-
-            try {
-
-              await deleteAPK(
-                button.dataset.delete
-              );
-
-              loadAPKs();
-
-            } catch(error) {
-
-              alert(
-                error.message
-              );
-
-            }
-
-          }
-        );
-
-      }
-    );
-
-
-  } catch(error) {
-
-    list.innerHTML =
-    `<p>${escapeHTML(
-      error.message
-    )}</p>`;
+    apkList.innerHTML =
+      "Error loading APKs: " +
+      error.message;
 
   }
 
@@ -1227,252 +1214,340 @@ async function loadAPKs() {
 // EDIT APK
 // ============================================================
 
-function editAPK(
-  apk
+window.editAPK =
+  async function(id) {
+
+    const apks =
+      await getAllAPKs();
+
+    const apk =
+      apks.find(
+        item =>
+          item.id === id
+      );
+
+
+    if (!apk) return;
+
+
+    document
+      .getElementById(
+        "editingId"
+      )
+      .value =
+      apk.id;
+
+
+    document
+      .getElementById(
+        "apkName"
+      )
+      .value =
+      apk.name || "";
+
+
+    document
+      .getElementById(
+        "apkCategory"
+      )
+      .value =
+      apk.category || "Android";
+
+
+    document
+      .getElementById(
+        "apkVersion"
+      )
+      .value =
+      apk.version || "";
+
+
+    document
+      .getElementById(
+        "logoUrl"
+      )
+      .value =
+      apk.logoUrl || "";
+
+
+    document
+      .getElementById(
+        "downloadUrl"
+      )
+      .value =
+      apk.downloadUrl || "";
+
+
+    document
+      .getElementById(
+        "telegramUrl"
+      )
+      .value =
+      apk.telegramUrl || "";
+
+
+    document
+      .getElementById(
+        "compatibility"
+      )
+      .value =
+      apk.compatibility || "";
+
+
+    document
+      .getElementById(
+        "badge"
+      )
+      .value =
+      apk.badge || "";
+
+
+    document
+      .getElementById(
+        "shortDescription"
+      )
+      .value =
+      apk.shortDescription || "";
+
+
+    document
+      .getElementById(
+        "description"
+      )
+      .value =
+      apk.description || "";
+
+
+    document
+      .getElementById(
+        "features"
+      )
+      .value =
+      (apk.features || [])
+        .join("\n");
+
+
+    document
+      .getElementById(
+        "published"
+      )
+      .value =
+      apk.published
+      ? "true"
+      : "false";
+
+
+    document
+      .getElementById(
+        "featured"
+      )
+      .value =
+      apk.featured
+      ? "true"
+      : "false";
+
+
+    document
+      .getElementById(
+        "saveBtn"
+      )
+      .textContent =
+      "UPDATE APK";
+
+
+    window.scrollTo(
+      0,
+      0
+    );
+
+  };
+
+
+// ============================================================
+// DELETE APK
+// ============================================================
+
+window.removeAPK =
+  async function(id) {
+
+    if (
+      !confirm(
+        "Are you sure you want to delete this APK?"
+      )
+    ) {
+
+      return;
+
+    }
+
+
+    try {
+
+      await deleteAPK(
+        id
+      );
+
+      loadAPKs();
+
+    }
+
+    catch (error) {
+
+      alert(
+        error.message
+      );
+
+    }
+
+  };
+
+
+// ============================================================
+// CLEAR FORM
+// ============================================================
+
+function clearForm() {
+
+  document
+    .getElementById(
+      "editingId"
+    )
+    .value =
+    "";
+
+
+  document
+    .getElementById(
+      "apkName"
+    )
+    .value =
+    "";
+
+
+  document
+    .getElementById(
+      "apkVersion"
+    )
+    .value =
+    "";
+
+
+  document
+    .getElementById(
+      "logoUrl"
+    )
+    .value =
+    "";
+
+
+  document
+    .getElementById(
+      "downloadUrl"
+    )
+    .value =
+    "";
+
+
+  document
+    .getElementById(
+      "telegramUrl"
+    )
+    .value =
+    "";
+
+
+  document
+    .getElementById(
+      "compatibility"
+    )
+    .value =
+    "";
+
+
+  document
+    .getElementById(
+      "badge"
+    )
+    .value =
+    "";
+
+
+  document
+    .getElementById(
+      "shortDescription"
+    )
+    .value =
+    "";
+
+
+  document
+    .getElementById(
+      "description"
+    )
+    .value =
+    "";
+
+
+  document
+    .getElementById(
+      "features"
+    )
+    .value =
+    "";
+
+
+  document
+    .getElementById(
+      "saveBtn"
+    )
+    .textContent =
+    "ADD APK";
+
+}
+
+
+// ============================================================
+// STATUS
+// ============================================================
+
+function showFormStatus(
+  message,
+  success
 ) {
 
-  editingId =
-  apk.id;
+  formStatus.className =
+    success
+    ? "status success"
+    : "status error";
 
-
-  document
-  .getElementById(
-    "formTitle"
-  )
-  .textContent =
-  "Edit APK";
-
-
-  document
-  .getElementById(
-    "saveBtn"
-  )
-  .textContent =
-  "UPDATE APK";
-
-
-  document
-  .getElementById(
-    "cancelBtn"
-  )
-  .classList.remove(
-    "hidden"
-  );
-
-
-  document
-  .getElementById(
-    "name"
-  ).value =
-  apk.name || "";
-
-
-  document
-  .getElementById(
-    "category"
-  ).value =
-  apk.category || "Android";
-
-
-  document
-  .getElementById(
-    "version"
-  ).value =
-  apk.version || "";
-
-
-  document
-  .getElementById(
-    "logoUrl"
-  ).value =
-  apk.logoUrl || "";
-
-
-  document
-  .getElementById(
-    "downloadUrl"
-  ).value =
-  apk.downloadUrl || "";
-
-
-  document
-  .getElementById(
-    "telegramUrl"
-  ).value =
-  apk.telegramUrl || "";
-
-
-  document
-  .getElementById(
-    "compatibility"
-  ).value =
-  apk.compatibility || "";
-
-
-  document
-  .getElementById(
-    "badge"
-  ).value =
-  apk.badge || "";
-
-
-  document
-  .getElementById(
-    "shortDescription"
-  ).value =
-  apk.shortDescription || "";
-
-
-  document
-  .getElementById(
-    "description"
-  ).value =
-  apk.description || "";
-
-
-  document
-  .getElementById(
-    "features"
-  ).value =
-  (
-    apk.features || []
-  ).join(
-    "\n"
-  );
-
-
-  document
-  .getElementById(
-    "published"
-  ).checked =
-  apk.published === true;
-
-
-  document
-  .getElementById(
-    "featured"
-  ).checked =
-  apk.featured === true;
-
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+  formStatus.textContent =
+    message;
 
 }
 
 
 // ============================================================
-// RESET FORM
-// ============================================================
-
-function resetForm() {
-
-  editingId =
-  null;
-
-
-  document
-  .getElementById(
-    "formTitle"
-  )
-  .textContent =
-  "Add New APK";
-
-
-  document
-  .getElementById(
-    "saveBtn"
-  )
-  .textContent =
-  "PUBLISH APK";
-
-
-  document
-  .getElementById(
-    "cancelBtn"
-  )
-  .classList.add(
-    "hidden"
-  );
-
-
-  document
-  .querySelectorAll(
-    "input:not([type=checkbox]), textarea"
-  )
-  .forEach(
-    input =>
-    input.value = ""
-  );
-
-
-  document
-  .getElementById(
-    "published"
-  ).checked =
-  false;
-
-
-  document
-  .getElementById(
-    "featured"
-  ).checked =
-  false;
-
-}
-
-
-// ============================================================
-// CANCEL EDIT
-// ============================================================
-
-document
-.getElementById(
-  "cancelBtn"
-)
-.addEventListener(
-  "click",
-  resetForm
-);
-
-
-// ============================================================
-// BASIC HTML ESCAPE
+// HTML ESCAPE
 // ============================================================
 
 function escapeHTML(
   value
 ) {
 
-  return String(
-    value || ""
-  )
-  .replace(
-    /&/g,
-    "&amp;"
-  )
-  .replace(
-    /</g,
-    "&lt;"
-  )
-  .replace(
-    />/g,
-    "&gt;"
-  )
-  .replace(
-    /"/g,
-    "&quot;"
-  )
-  .replace(
-    /'/g,
-    "&#039;"
-  );
+  const div =
+    document.createElement(
+      "div"
+    );
+
+  div.textContent =
+    String(value || "");
+
+  return div.innerHTML;
 
 }
 
 </script>
+
 
 </body>
 
