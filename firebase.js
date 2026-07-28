@@ -1,121 +1,52 @@
 // ============================================================
 // FRENZY CHEATS - FIREBASE.JS
-// Firebase Auth + Firestore
-// Firebase Storage NOT USED
+// Firebase Authentication + Firestore
 // ============================================================
 
-import { initializeApp } from
-"https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
-
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut
-} from
-"https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
-
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  getDocs,
-  doc,
-  updateDoc,
-  deleteDoc,
-  query,
-  orderBy,
-  increment,
-  serverTimestamp
-} from
-"https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
-
-
-// ============================================================
-// YOUR FIREBASE CONFIG
-// ============================================================
-
+// Firebase configuration
 const firebaseConfig = {
-
-  apiKey:
-    "AIzaSyCSJFYHI20c4XBf4JNaTsRHNQbHbd63hoc",
-
-  authDomain:
-    "frenzy-apks.firebaseapp.com",
-
-  databaseURL:
-    "https://frenzy-apks-default-rtdb.firebaseio.com",
-
-  projectId:
-    "frenzy-apks",
-
-  storageBucket:
-    "frenzy-apks.firebasestorage.app",
-
-  messagingSenderId:
-    "670031638962",
-
-  appId:
-    "1:670031638962:web:75f7a606daa653283774ab",
-
-  measurementId:
-    "G-ZJ0KG1T3W4"
-
+  apiKey: "AIzaSyCSJFYHI20c4XBf4JNaTsRHNQbHbd63hoc",
+  authDomain: "frenzy-apks.firebaseapp.com",
+  databaseURL: "https://frenzy-apks-default-rtdb.firebaseio.com",
+  projectId: "frenzy-apks",
+  storageBucket: "frenzy-apks.firebasestorage.app",
+  messagingSenderId: "670031638962",
+  appId: "1:670031638962:web:75f7a606daa653283774ab",
+  measurementId: "G-ZJ0KG1T3W4"
 };
 
+// Initialize Firebase
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
-// ============================================================
-// INITIALIZE FIREBASE
-// ============================================================
+// Firebase services
+const auth = firebase.auth();
+const db = firebase.firestore();
 
-const app =
-  initializeApp(firebaseConfig);
-
-const auth =
-  getAuth(app);
-
-const db =
-  getFirestore(app);
-
-
-// ============================================================
-// EXPORT
-// ============================================================
-
-export {
-
-  auth,
-  db,
-
-  onAuthStateChanged,
-  signOut
-
-};
+// Make globally available
+window.firebaseApp = firebase.app();
+window.auth = auth;
+window.db = db;
 
 
 // ============================================================
 // ADMIN LOGIN
 // ============================================================
 
-export async function adminLogin(
-  email,
-  password
-) {
+async function adminLogin(email, password) {
+
+  email = String(email || "").trim();
+  password = String(password || "");
 
   if (!email || !password) {
-
-    throw new Error(
-      "Email and password required."
-    );
-
+    throw new Error("Email and password are required.");
   }
 
-  return await signInWithEmailAndPassword(
-    auth,
+  return await auth.signInWithEmailAndPassword(
     email,
     password
   );
-
 }
 
 
@@ -123,100 +54,52 @@ export async function adminLogin(
 // ADMIN LOGOUT
 // ============================================================
 
-export async function adminLogout() {
+async function adminLogout() {
 
-  await signOut(auth);
+  await auth.signOut();
+
+  window.location.reload();
 
 }
 
 
 // ============================================================
-// GET ALL APKs
+// AUTH STATE
 // ============================================================
 
-export async function getAllAPKs() {
+function checkAdminLogin(callback) {
 
-  const q = query(
+  return auth.onAuthStateChanged(
+    user => {
 
-    collection(
-      db,
-      "apks"
-    ),
+      if (typeof callback === "function") {
+        callback(user);
+      }
 
-    orderBy(
-      "createdAt",
-      "desc"
-    )
-
-  );
-
-
-  const snapshot =
-    await getDocs(q);
-
-
-  return snapshot.docs.map(
-
-    item => ({
-
-      id:
-        item.id,
-
-      ...item.data()
-
-    })
-
+    }
   );
 
 }
 
 
 // ============================================================
-// GET PUBLISHED APKs
+// GET APK LIST
 // ============================================================
 
-export async function getPublishedAPKs() {
+async function getAllAPKs() {
 
-  const q = query(
+  const snapshot = await db
+    .collection("apks")
+    .orderBy("createdAt", "desc")
+    .get();
 
-    collection(
-      db,
-      "apks"
-    ),
+  return snapshot.docs.map(doc => ({
 
-    orderBy(
-      "createdAt",
-      "desc"
-    )
+    id: doc.id,
 
-  );
+    ...doc.data()
 
-
-  const snapshot =
-    await getDocs(q);
-
-
-  return snapshot.docs
-
-    .map(
-
-      item => ({
-
-        id:
-          item.id,
-
-        ...item.data()
-
-      })
-
-    )
-
-    .filter(
-
-      item =>
-        item.published === true
-
-    );
+  }));
 
 }
 
@@ -225,27 +108,17 @@ export async function getPublishedAPKs() {
 // ADD APK
 // ============================================================
 
-export async function addAPK(
-  data
-) {
+async function addAPK(data) {
 
   if (!auth.currentUser) {
-
     throw new Error(
-      "Admin login required."
+      "You must be logged in as admin."
     );
-
   }
 
-
-  return await addDoc(
-
-    collection(
-      db,
-      "apks"
-    ),
-
-    {
+  return await db
+    .collection("apks")
+    .add({
 
       name:
         data.name || "",
@@ -278,11 +151,9 @@ export async function addAPK(
         data.description || "",
 
       features:
-        Array.isArray(
-          data.features
-        )
-        ? data.features
-        : [],
+        Array.isArray(data.features)
+          ? data.features
+          : [],
 
       published:
         data.published === true,
@@ -294,14 +165,12 @@ export async function addAPK(
         0,
 
       createdAt:
-        serverTimestamp(),
+        firebase.firestore.FieldValue.serverTimestamp(),
 
       updatedAt:
-        serverTimestamp()
+        firebase.firestore.FieldValue.serverTimestamp()
 
-    }
-
-  );
+    });
 
 }
 
@@ -310,29 +179,18 @@ export async function addAPK(
 // UPDATE APK
 // ============================================================
 
-export async function updateAPK(
-  id,
-  data
-) {
+async function updateAPK(id, data) {
 
   if (!auth.currentUser) {
-
     throw new Error(
-      "Admin login required."
+      "You must be logged in as admin."
     );
-
   }
 
-
-  return await updateDoc(
-
-    doc(
-      db,
-      "apks",
-      id
-    ),
-
-    {
+  return await db
+    .collection("apks")
+    .doc(id)
+    .update({
 
       name:
         data.name || "",
@@ -365,11 +223,9 @@ export async function updateAPK(
         data.description || "",
 
       features:
-        Array.isArray(
-          data.features
-        )
-        ? data.features
-        : [],
+        Array.isArray(data.features)
+          ? data.features
+          : [],
 
       published:
         data.published === true,
@@ -378,11 +234,9 @@ export async function updateAPK(
         data.featured === true,
 
       updatedAt:
-        serverTimestamp()
+        firebase.firestore.FieldValue.serverTimestamp()
 
-    }
-
-  );
+    });
 
 }
 
@@ -391,28 +245,18 @@ export async function updateAPK(
 // DELETE APK
 // ============================================================
 
-export async function deleteAPK(
-  id
-) {
+async function deleteAPK(id) {
 
   if (!auth.currentUser) {
-
     throw new Error(
-      "Admin login required."
+      "You must be logged in as admin."
     );
-
   }
 
-
-  return await deleteDoc(
-
-    doc(
-      db,
-      "apks",
-      id
-    )
-
-  );
+  return await db
+    .collection("apks")
+    .doc(id)
+    .delete();
 
 }
 
@@ -421,25 +265,45 @@ export async function deleteAPK(
 // DOWNLOAD COUNTER
 // ============================================================
 
-export async function trackDownload(
-  id
-) {
+async function trackDownload(id) {
 
-  return await updateDoc(
-
-    doc(
-      db,
-      "apks",
-      id
-    ),
-
-    {
+  return await db
+    .collection("apks")
+    .doc(id)
+    .update({
 
       downloadCount:
-        increment(1)
+        firebase.firestore.FieldValue.increment(1)
 
-    }
-
-  );
+    });
 
 }
+
+
+// ============================================================
+// GLOBAL EXPORTS
+// ============================================================
+
+window.adminLogin =
+  adminLogin;
+
+window.adminLogout =
+  adminLogout;
+
+window.checkAdminLogin =
+  checkAdminLogin;
+
+window.getAllAPKs =
+  getAllAPKs;
+
+window.addAPK =
+  addAPK;
+
+window.updateAPK =
+  updateAPK;
+
+window.deleteAPK =
+  deleteAPK;
+
+window.trackDownload =
+  trackDownload;
