@@ -9,849 +9,773 @@
 name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>FRENZY CHEATS APK HUB</title>
-
-<meta
-name="description"
-content="FRENZY CHEATS APK HUB - Download apps and gaming resources."
->
+<title>
+FRENZY CHEATS - Download Center
+</title>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
 
-body{
+body {
 
-font-family:
-Inter,
-Arial,
-sans-serif;
+  margin: 0;
 
-background:
-#050505;
+  background:
+  radial-gradient(
+    circle at 20% 10%,
+    #171044,
+    transparent 30%
+  ),
+  radial-gradient(
+    circle at 80% 40%,
+    #190b2e,
+    transparent 30%
+  ),
+  #050812;
 
-color:#fff;
+  color:
+  #e8edf7;
 
-min-height:100vh;
+  font-family:
+  Arial,
+  Helvetica,
+  sans-serif;
 
 }
 
-body:before{
+.container {
 
-content:"";
+  width:
+  min(
+    1100px,
+    94%
+  );
 
-position:fixed;
+  margin:
+  auto;
 
-inset:0;
-
-background:
-radial-gradient(
-circle at 20% 20%,
-rgba(255,0,60,.12),
-transparent 30%
-),
-radial-gradient(
-circle at 80% 80%,
-rgba(255,0,60,.08),
-transparent 30%
-);
-
-pointer-events:none;
-
-z-index:-1;
-
 }
-
-header{
-
-position:sticky;
-
-top:0;
 
-z-index:100;
 
-background:
-rgba(5,5,5,.88);
+/* HEADER */
 
-backdrop-filter:
-blur(15px);
+header {
 
-border-bottom:
-1px solid
-rgba(255,0,60,.2);
+  margin-top:
+  30px;
 
-}
+  padding:
+  18px 25px;
 
-.nav{
+  border:
+  1px solid
+  #27324a;
 
-max-width:1200px;
+  border-radius:
+  22px;
 
-margin:auto;
+  background:
+  rgba(
+    13,
+    20,
+    35,
+    .9
+  );
 
-padding:
-18px 20px;
+  display:
+  flex;
 
-display:flex;
+  align-items:
+  center;
 
-align-items:center;
+  justify-content:
+  space-between;
 
-justify-content:space-between;
+  gap:
+  20px;
 
 }
-
-.logo{
-
-font-size:24px;
 
-font-weight:900;
-
-letter-spacing:2px;
-
-color:#fff;
-
-}
+.brand {
 
-.logo span{
+  display:
+  flex;
 
-color:#ff174f;
+  align-items:
+  center;
 
-text-shadow:
-0 0 15px
-rgba(255,23,79,.8);
+  gap:
+  15px;
 
 }
 
-.nav a{
+.brand img {
 
-color:#fff;
+  width:
+  55px;
 
-text-decoration:none;
+  height:
+  55px;
 
-padding:
-10px 18px;
+  border-radius:
+  15px;
 
-border-radius:10px;
+  object-fit:
+  cover;
 
-transition:.3s;
-
 }
 
-.nav a:hover{
+.brand h2 {
 
-background:
-rgba(255,23,79,.12);
+  margin:
+  0;
 
-color:#ff174f;
+  font-size:
+  24px;
 
 }
-
-.hero{
-
-max-width:1200px;
 
-margin:auto;
+.brand span {
 
-padding:
-100px 20px 70px;
+  display:
+  block;
 
-text-align:center;
+  color:
+  #a855f7;
 
-}
-
-.hero h1{
+  font-size:
+  12px;
 
-font-size:
-clamp(42px,8vw,82px);
+  letter-spacing:
+  2px;
 
-font-weight:1000;
+  margin-top:
+  4px;
 
-letter-spacing:4px;
-
 }
 
-.hero h1 span{
+.nav {
 
-color:#ff174f;
+  display:
+  flex;
 
-text-shadow:
-0 0 25px
-rgba(255,23,79,.7);
+  gap:
+  10px;
 
 }
-
-.hero p{
 
-max-width:650px;
+.nav a {
 
-margin:
-20px auto;
+  text-decoration:
+  none;
 
-color:#aaa;
+  color:
+  #dbeafe;
 
-font-size:18px;
+  padding:
+  12px 18px;
 
-line-height:1.7;
+  background:
+  #111a2b;
 
-}
-
-.hero-buttons{
-
-display:flex;
-
-justify-content:center;
+  border:
+  1px solid
+  #29344d;
 
-gap:15px;
+  border-radius:
+  12px;
 
-flex-wrap:wrap;
-
-margin-top:30px;
-
 }
 
-.btn{
 
-display:inline-flex;
+/* HERO */
 
-align-items:center;
+.hero {
 
-justify-content:center;
+  text-align:
+  center;
 
-padding:
-14px 25px;
+  padding:
+  80px 10px 50px;
 
-border-radius:12px;
+}
 
-border:1px solid
-rgba(255,23,79,.5);
+.hero-badge {
 
-background:
-rgba(255,23,79,.1);
+  display:
+  inline-block;
 
-color:#fff;
+  padding:
+  10px 18px;
 
-text-decoration:none;
+  border:
+  1px solid
+  #7c3aed;
 
-font-weight:800;
+  color:
+  #c084fc;
 
-cursor:pointer;
+  border-radius:
+  30px;
 
-transition:.3s;
+  margin-bottom:
+  25px;
 
 }
 
-.btn:hover{
+.hero h1 {
 
-transform:
-translateY(-3px);
+  font-size:
+  clamp(
+    45px,
+    7vw,
+    80px
+  );
 
-box-shadow:
-0 0 25px
-rgba(255,23,79,.45);
+  margin:
+  0;
 
 }
-
-.btn-primary{
 
-background:
-linear-gradient(
-135deg,
-#ff174f,
-#b00035
-);
+.hero h1 span {
 
-border:none;
+  color:
+  #a855f7;
 
-box-shadow:
-0 0 20px
-rgba(255,23,79,.35);
-
 }
-
-.stats{
-
-max-width:1000px;
 
-margin:
-0 auto 60px;
+.hero h3 {
 
-padding:
-0 20px;
+  color:
+  #c084fc;
 
-display:grid;
+  letter-spacing:
+  2px;
 
-grid-template-columns:
-repeat(3,1fr);
-
-gap:15px;
-
 }
-
-.stat{
-
-padding:25px;
 
-text-align:center;
+.hero p {
 
-background:
-rgba(255,255,255,.03);
+  max-width:
+  700px;
 
-border:
-1px solid
-rgba(255,255,255,.08);
+  margin:
+  20px auto;
 
-border-radius:18px;
+  color:
+  #94a3b8;
 
-}
-
-.stat h2{
-
-font-size:32px;
-
-color:#ff174f;
+  line-height:
+  1.7;
 
 }
 
-.stat p{
 
-color:#999;
+/* TABS */
 
-margin-top:7px;
+.tabs {
 
-}
+  display:
+  flex;
 
-.container{
+  justify-content:
+  center;
 
-max-width:1200px;
+  gap:
+  10px;
 
-margin:auto;
+  flex-wrap:
+  wrap;
 
-padding:
-0 20px 70px;
+  margin:
+  20px 0 45px;
 
 }
-
-.section-title{
 
-display:flex;
+.tab {
 
-align-items:center;
+  border:
+  1px solid
+  #29344d;
 
-justify-content:space-between;
+  background:
+  #0c1423;
 
-gap:15px;
+  color:
+  #cbd5e1;
 
-margin-bottom:25px;
-
-}
+  padding:
+  12px 20px;
 
-.section-title h2{
+  border-radius:
+  12px;
 
-font-size:28px;
+  cursor:
+  pointer;
 
 }
 
-.search-box{
+.tab.active {
 
-width:100%;
+  background:
+  linear-gradient(
+    135deg,
+    #7c3aed,
+    #ec4899
+  );
 
-margin-bottom:30px;
+  color:
+  white;
 
 }
 
-.search-box input{
 
-width:100%;
+/* GRID */
 
-padding:
-16px 20px;
+.grid {
 
-border-radius:12px;
+  display:
+  grid;
 
-border:
-1px solid
-rgba(255,255,255,.1);
+  grid-template-columns:
+  repeat(
+    2,
+    1fr
+  );
 
-background:
-#101010;
+  gap:
+  30px;
 
-color:#fff;
-
-font-size:16px;
-
-outline:none;
-
 }
 
-.search-box input:focus{
+@media(
+  max-width: 800px
+) {
 
-border-color:
-#ff174f;
+  .grid {
 
-box-shadow:
-0 0 15px
-rgba(255,23,79,.15);
+    grid-template-columns:
+    1fr;
 
-}
-
-.categories{
+  }
 
-display:flex;
+  header {
 
-gap:10px;
+    flex-direction:
+    column;
 
-flex-wrap:wrap;
+  }
 
-margin-bottom:30px;
-
 }
-
-.category{
 
-padding:
-9px 15px;
 
-border-radius:20px;
+/* APK CARD */
 
-border:
-1px solid
-rgba(255,255,255,.1);
+.apk-card {
 
-background:
-#101010;
+  background:
+  rgba(
+    13,
+    20,
+    35,
+    .95
+  );
 
-color:#aaa;
+  border:
+  1px solid
+  #29344d;
 
-cursor:pointer;
+  border-radius:
+  25px;
 
-}
-
-.category.active,
-.category:hover{
+  overflow:
+  hidden;
 
-background:
-rgba(255,23,79,.15);
+  padding:
+  25px;
 
-border-color:
-#ff174f;
+  position:
+  relative;
 
-color:#fff;
-
 }
-
-.grid{
 
-display:grid;
+.apk-card::before {
 
-grid-template-columns:
-repeat(3,1fr);
+  content:
+  "";
 
-gap:22px;
+  display:
+  block;
 
-}
-
-.card{
+  height:
+  3px;
 
-overflow:hidden;
+  background:
+  linear-gradient(
+    90deg,
+    #7c3aed,
+    #ec4899
+  );
 
-background:
-linear-gradient(
-145deg,
-#111,
-#090909
-);
+  position:
+  absolute;
 
-border:
-1px solid
-rgba(255,255,255,.08);
+  top:
+  0;
 
-border-radius:20px;
+  left:
+  0;
 
-transition:.35s;
+  right:
+  0;
 
 }
-
-.card:hover{
-
-transform:
-translateY(-7px);
 
-border-color:
-rgba(255,23,79,.6);
+.apk-top {
 
-box-shadow:
-0 15px 45px
-rgba(255,23,79,.12);
+  display:
+  flex;
 
-}
-
-.card-image{
-
-height:210px;
+  justify-content:
+  space-between;
 
-background:
-#151515;
+  gap:
+  15px;
 
-overflow:hidden;
+  align-items:
+  center;
 
 }
 
-.card-image img{
+.apk-logo {
 
-width:100%;
+  width:
+  90px;
 
-height:100%;
+  height:
+  90px;
 
-object-fit:cover;
+  border-radius:
+  20px;
 
-transition:.5s;
+  object-fit:
+  cover;
 
-}
-
-.card:hover
-.card-image img{
+  border:
+  2px solid
+  #7c3aed;
 
-transform:
-scale(1.06);
-
 }
 
-.card-body{
+.badge {
 
-padding:20px;
+  padding:
+  7px 12px;
 
-}
+  border-radius:
+  20px;
 
-.card h3{
+  background:
+  #24134b;
 
-font-size:20px;
+  color:
+  #c084fc;
 
-margin-bottom:10px;
+  font-size:
+  12px;
 
 }
 
-.description{
+.apk-card h2 {
 
-color:#999;
+  margin:
+  20px 0 8px;
 
-line-height:1.6;
-
-font-size:14px;
-
-display:
--webkit-box;
-
--webkit-line-clamp:3;
-
--webkit-box-orient:vertical;
-
-overflow:hidden;
-
 }
-
-.meta{
 
-display:flex;
+.short {
 
-gap:8px;
+  color:
+  #94a3b8;
 
-flex-wrap:wrap;
+  line-height:
+  1.6;
 
-margin:
-15px 0;
-
 }
 
-.badge{
+.meta {
 
-font-size:12px;
+  display:
+  grid;
 
-padding:
-6px 9px;
+  grid-template-columns:
+  1fr 1fr;
 
-border-radius:7px;
+  gap:
+  10px;
 
-background:
-rgba(255,255,255,.06);
+  margin:
+  25px 0;
 
-color:#aaa;
-
 }
-
-.download-count{
 
-color:#ff5478;
+.meta div {
 
-}
-
-.card-buttons{
+  background:
+  #0a1220;
 
-display:grid;
+  border:
+  1px solid
+  #202c42;
 
-grid-template-columns:
-1fr 1fr;
+  border-radius:
+  12px;
 
-gap:10px;
+  padding:
+  12px;
 
 }
-
-.download-btn{
-
-position:relative;
 
-overflow:hidden;
+.meta small {
 
-background:
-linear-gradient(
-135deg,
-#ff174f,
-#b00035
-);
+  display:
+  block;
 
-border:none;
+  color:
+  #64748b;
 
-color:#fff;
+  font-size:
+  10px;
 
-font-weight:900;
-
-padding:13px;
-
-border-radius:10px;
-
-cursor:pointer;
-
-box-shadow:
-0 0 18px
-rgba(255,23,79,.3);
-
-transition:.3s;
-
 }
 
-.download-btn:hover{
+.meta strong {
 
-transform:
-translateY(-2px);
+  display:
+  block;
 
-box-shadow:
-0 0 30px
-rgba(255,23,79,.6);
+  margin-top:
+  5px;
 
 }
-
-.download-btn:after{
-
-content:"";
 
-position:absolute;
 
-top:0;
+/* FEATURES */
 
-left:-100%;
+.features {
 
-width:50%;
+  margin:
+  25px 0;
 
-height:100%;
-
-background:
-rgba(255,255,255,.25);
-
-transform:
-skewX(-20deg);
-
-transition:.5s;
-
 }
 
-.download-btn:hover:after{
+.features h4 {
 
-left:130%;
+  color:
+  #a5b4fc;
 
 }
-
-.empty{
 
-text-align:center;
+.features li {
 
-padding:70px 20px;
+  margin:
+  10px 0;
 
-color:#777;
+  color:
+  #cbd5e1;
 
-grid-column:1/-1;
-
 }
-
-footer{
 
-border-top:
-1px solid
-rgba(255,255,255,.08);
 
-padding:
-40px 20px;
+/* BUTTONS */
 
-text-align:center;
+.download {
 
-color:#777;
+  display:
+  block;
 
-}
-
-footer strong{
+  width:
+  100%;
 
-color:#ff174f;
-
-}
+  padding:
+  17px;
 
-.modal{
+  border-radius:
+  14px;
 
-position:fixed;
+  background:
+  linear-gradient(
+    135deg,
+    #6366f1,
+    #a855f7
+  );
 
-inset:0;
+  color:
+  white;
 
-background:
-rgba(0,0,0,.85);
+  text-align:
+  center;
 
-backdrop-filter:
-blur(10px);
+  text-decoration:
+  none;
 
-z-index:500;
+  font-weight:
+  bold;
 
-display:none;
+  margin-top:
+  25px;
 
-align-items:center;
+}
 
-justify-content:center;
+.actions {
 
-padding:20px;
+  display:
+  grid;
 
-}
+  grid-template-columns:
+  1fr 1fr;
 
-.modal.show{
+  gap:
+  10px;
 
-display:flex;
+  margin-top:
+  10px;
 
 }
 
-.modal-content{
+.action {
 
-max-width:800px;
+  padding:
+  13px;
 
-width:100%;
+  background:
+  #111a2b;
 
-max-height:90vh;
+  border:
+  1px solid
+  #29344d;
 
-overflow:auto;
+  border-radius:
+  10px;
 
-background:
-#101010;
+  color:
+  #dbeafe;
 
-border:
-1px solid
-rgba(255,23,79,.35);
+  text-align:
+  center;
 
-border-radius:20px;
+  cursor:
+  pointer;
 
-padding:25px;
+  text-decoration:
+  none;
 
 }
-
-.modal-image{
-
-width:100%;
 
-height:320px;
 
-object-fit:cover;
+/* QR MODAL */
 
-border-radius:15px;
+.modal {
 
-margin-bottom:20px;
+  position:
+  fixed;
 
-}
+  inset:
+  0;
 
-.close{
+  background:
+  rgba(
+    0,
+    0,
+    0,
+    .8
+  );
 
-float:right;
+  display:
+  none;
 
-font-size:28px;
+  justify-content:
+  center;
 
-cursor:pointer;
+  align-items:
+  center;
 
-color:#aaa;
+  z-index:
+  999;
 
 }
-
-.screenshots{
-
-display:grid;
 
-grid-template-columns:
-repeat(3,1fr);
+.modal.show {
 
-gap:10px;
+  display:
+  flex;
 
-margin-top:20px;
-
 }
-
-.screenshots img{
-
-width:100%;
-
-height:120px;
 
-object-fit:cover;
+.modal-box {
 
-border-radius:10px;
+  background:
+  #0c1423;
 
-}
-
-@media(max-width:850px){
+  padding:
+  30px;
 
-.grid{
+  border-radius:
+  20px;
 
-grid-template-columns:
-repeat(2,1fr);
+  text-align:
+  center;
 
-}
+  width:
+  min(
+    400px,
+    90%
+  );
 
 }
-
-@media(max-width:600px){
 
-.stats{
+#qr {
 
-grid-template-columns:1fr;
+  background:
+  white;
 
-}
+  padding:
+  15px;
 
-.grid{
+  display:
+  inline-block;
 
-grid-template-columns:1fr;
+  margin:
+  20px;
 
 }
 
-.hero{
+.close {
 
-padding-top:70px;
+  background:
+  #dc2626;
 
 }
 
-.card-buttons{
 
-grid-template-columns:1fr;
+/* EMPTY */
 
-}
+.empty {
 
-.nav{
+  text-align:
+  center;
 
-padding:
-15px;
+  color:
+  #64748b;
 
-}
+  padding:
+  70px;
+
+  grid-column:
+  1 / -1;
 
 }
 
@@ -861,16 +785,51 @@ padding:
 
 <body>
 
+
+<div class="container">
+
+
+<!-- HEADER -->
+
 <header>
+
+<div class="brand">
+
+<img
+id="siteLogo"
+src="https://via.placeholder.com/100"
+alt="FRENZY CHEATS">
+
+<div>
+
+<h2>
+FRENZY CHEATS
+</h2>
+
+<span>
+OFFICIAL DOWNLOADS
+</span>
+
+</div>
+
+</div>
+
 
 <div class="nav">
 
-<div class="logo">
-FRENZY <span>CHEATS</span>
-</div>
+<a
+href="https://t.me/"
+target="_blank">
 
-<a href="#apps">
-APKs
+Telegram
+
+</a>
+
+<a
+href="#downloads">
+
+Downloads
+
 </a>
 
 </div>
@@ -878,171 +837,94 @@ APKs
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero">
+
+<div class="hero-badge">
+
+⚡ OFFICIAL DOWNLOAD CENTER
+
+</div>
 
 <h1>
 FRENZY <span>CHEATS</span>
 </h1>
 
+<h3>
+APK & GAME DOWNLOAD CENTER
+</h3>
+
 <p>
-Welcome to the FRENZY CHEATS APK HUB.
-Browse available applications and gaming resources
-from one place.
+
+Download the latest available APKs and tools.
+All download links are managed through the official
+FRENZY CHEATS download center.
+
 </p>
 
-<div class="hero-buttons">
-
-<a
-href="#apps"
-class="btn btn-primary">
-EXPLORE APKs
-</a>
-
-<a
-href="#popular"
-class="btn">
-POPULAR DOWNLOADS
-</a>
-
-</div>
-
 </section>
 
 
-<section class="stats">
-
-<div class="stat">
-
-<h2 id="totalAPKs">
-0
-</h2>
-
-<p>Total APKs</p>
-
-</div>
-
-<div class="stat">
-
-<h2 id="totalDownloads">
-0
-</h2>
-
-<p>Total Downloads</p>
-
-</div>
-
-<div class="stat">
-
-<h2 id="totalVisitors">
-0
-</h2>
-
-<p>Total Visitors</p>
-
-</div>
-
-</section>
-
-
-<main
-class="container"
-id="apps">
-
-<div class="section-title">
-
-<h2>Available APKs</h2>
-
-</div>
-
-
-<div class="search-box">
-
-<input
-id="searchInput"
-type="search"
-placeholder="Search APKs..."
->
-
-</div>
-
+<!-- TABS -->
 
 <div
-id="categories"
-class="categories">
+id="tabs"
+class="tabs">
+
+<button
+class="tab active"
+data-category="All">
+
+All Downloads
+
+</button>
 
 </div>
 
 
-<div
-id="apkGrid"
+<!-- APK GRID -->
+
+<section
+id="downloads"
 class="grid">
 
 <div class="empty">
-Loading APKs...
-</div>
+
+Loading downloads...
 
 </div>
 
-</main>
+</section>
 
 
-<footer>
+</div>
 
-<p>
-© <span id="year"></span>
-<strong>FRENZY CHEATS</strong>
-.
-All rights reserved.
-</p>
 
-</footer>
-
+<!-- QR MODAL -->
 
 <div
-id="modal"
+id="qrModal"
 class="modal">
 
-<div class="modal-content">
+<div class="modal-box">
 
-<span
-class="close"
-id="closeModal">
-×
-</span>
-
-<img
-id="modalImage"
-class="modal-image"
-src=""
-alt="APK">
-
-<h2 id="modalTitle">
-APK
+<h2>
+Scan to Download
 </h2>
 
-<p
-id="modalDescription"
-class="description"
-style="margin-top:12px">
+<div id="qr"></div>
+
+<p>
+Scan this QR code with your phone.
 </p>
 
-<div
-id="modalMeta"
-class="meta">
-</div>
-
-<div
-id="modalScreenshots"
-class="screenshots">
-</div>
-
-<br>
-
 <button
-id="modalDownload"
-class="download-btn"
-style="width:100%">
-DOWNLOAD APK
+class="close"
+onclick="closeQR()">
+
+CLOSE
+
 </button>
 
 </div>
@@ -1053,204 +935,157 @@ DOWNLOAD APK
 <script type="module">
 
 import {
-getPublishedAPKs,
-trackDownload,
-getAnalytics,
-trackVisitor
-}
-from "./firebase.js";
+
+  getPublishedAPKs,
+
+  trackDownload
+
+} from "./firebase.js";
 
 
 let allAPKs = [];
-
-let selectedAPK = null;
-
-
-// ============================================================
-// ELEMENTS
-// ============================================================
-
-const apkGrid =
-document.getElementById(
-"apkGrid"
-);
-
-const searchInput =
-document.getElementById(
-"searchInput"
-);
-
-const categories =
-document.getElementById(
-"categories"
-);
-
-const modal =
-document.getElementById(
-"modal"
-);
-
-const closeModal =
-document.getElementById(
-"closeModal"
-);
-
-
-// ============================================================
-// FORMAT NUMBER
-// ============================================================
-
-function formatNumber(number){
-
-return new Intl.NumberFormat(
-"en-IN"
-).format(
-number || 0
-);
-
-}
 
 
 // ============================================================
 // LOAD APKs
 // ============================================================
 
-async function loadAPKs(){
+async function loadAPKs() {
 
-try{
+  const grid =
+  document.getElementById(
+    "downloads"
+  );
 
-allAPKs =
-await getPublishedAPKs();
 
-document.getElementById(
-"totalAPKs"
-).textContent =
-formatNumber(
-allAPKs.length
-);
+  try {
 
-renderCategories();
+    allAPKs =
+    await getPublishedAPKs();
 
-renderAPKs(
-allAPKs
-);
 
-let total =
-allAPKs.reduce(
-(sum, apk) =>
-sum +
-(apk.downloadCount || 0),
-0
-);
+    createTabs();
 
-document.getElementById(
-"totalDownloads"
-).textContent =
-formatNumber(total);
+    renderAPKs(
+      "All"
+    );
 
-}
-catch(error){
+  } catch(error) {
 
-console.error(error);
+    grid.innerHTML = `
 
-apkGrid.innerHTML = `
-<div class="empty">
-Unable to load APKs.
-Please try again later.
-</div>
-`;
+      <div class="empty">
 
-}
+        Failed to load downloads.
+
+      </div>
+
+    `;
+
+    console.error(
+      error
+    );
+
+  }
 
 }
 
 
 // ============================================================
-// CATEGORIES
+// CREATE CATEGORY TABS
 // ============================================================
 
-function renderCategories(){
+function createTabs() {
 
-const categoryList =
-[
-"All",
-...new Set(
-allAPKs
-.map(apk =>
-apk.category
-)
-.filter(Boolean)
-)
-];
+  const tabs =
+  document.getElementById(
+    "tabs"
+  );
 
-categories.innerHTML =
-categoryList
-.map(
-(category,index) => `
 
-<button
-class="category ${index === 0 ? "active" : ""}"
-data-category="${escapeHTML(category)}">
+  const categories = [
 
-${escapeHTML(category)}
+    "All",
 
-</button>
+    ...new Set(
 
-`
-)
-.join("");
+      allAPKs
+      .map(
+        apk =>
+        apk.category
+      )
+      .filter(Boolean)
 
-document
-.querySelectorAll(
-".category"
-)
-.forEach(button => {
+    )
 
-button.addEventListener(
-"click",
-() => {
+  ];
 
-document
-.querySelectorAll(
-".category"
-)
-.forEach(
-b =>
-b.classList.remove(
-"active"
-)
-);
 
-button.classList.add(
-"active"
-);
+  tabs.innerHTML =
+  categories
+  .map(
+    category => `
 
-const category =
-button.dataset.category;
+      <button
+      class="tab ${
+        category === "All"
+        ? "active"
+        : ""
+      }"
+      data-category="${escapeHTML(
+        category
+      )}">
 
-if(category === "All"){
+        ${escapeHTML(
+          category === "All"
+          ? "All Downloads"
+          : category
+        )}
 
-renderAPKs(
-allAPKs
-);
+      </button>
 
-}
-else{
+    `
+  )
+  .join("");
 
-renderAPKs(
-allAPKs.filter(
-apk =>
-apk.category ===
-category
-)
-);
 
-}
+  tabs
+  .querySelectorAll(
+    ".tab"
+  )
+  .forEach(
+    button => {
 
-}
-);
+      button.addEventListener(
+        "click",
+        () => {
 
-});
+          tabs
+          .querySelectorAll(
+            ".tab"
+          )
+          .forEach(
+            b =>
+            b.classList.remove(
+              "active"
+            )
+          );
+
+
+          button.classList.add(
+            "active"
+          );
+
+
+          renderAPKs(
+            button.dataset.category
+          );
+
+        }
+      );
+
+    }
+  );
 
 }
 
@@ -1260,422 +1095,509 @@ category
 // ============================================================
 
 function renderAPKs(
-apks
-){
+  category
+) {
 
-if(!apks.length){
+  const grid =
+  document.getElementById(
+    "downloads"
+  );
 
-apkGrid.innerHTML = `
-<div class="empty">
-No APKs found.
-</div>
-`;
 
-return;
+  const list =
+  category === "All"
 
-}
+  ? allAPKs
 
-apkGrid.innerHTML =
-apks
-.map(
-apk => `
+  : allAPKs.filter(
+      apk =>
+      apk.category ===
+      category
+    );
 
-<article class="card">
 
-<div class="card-image">
+  if (!list.length) {
 
-<img
-src="${escapeAttribute(
-apk.imageUrl ||
-"https://placehold.co/800x500/111/ff174f?text=FRENZY+CHEATS"
-)}"
-alt="${escapeAttribute(
-apk.name
-)}"
-loading="lazy">
+    grid.innerHTML = `
 
-</div>
+      <div class="empty">
 
-<div class="card-body">
+        No downloads available.
 
-<h3>
-${escapeHTML(
-apk.name || "Unnamed APK"
-)}
-</h3>
+      </div>
 
-<p class="description">
-${escapeHTML(
-apk.shortDescription ||
-apk.description ||
-"No description available."
-)}
-</p>
+    `;
 
-<div class="meta">
+    return;
 
-<span class="badge">
-v${escapeHTML(
-apk.version || "N/A"
-)}
-</span>
+  }
 
-<span class="badge">
-${escapeHTML(
-apk.fileSize || "Unknown size"
-)}
-</span>
 
-<span class="badge download-count">
-↓ ${formatNumber(
-apk.downloadCount || 0
-)}
-</span>
+  grid.innerHTML =
+  list
+  .map(
+    apk =>
+    createCard(
+      apk
+    )
+  )
+  .join("");
 
-</div>
 
-<div class="card-buttons">
+  document
+  .querySelectorAll(
+    "[data-download]"
+  )
+  .forEach(
+    button => {
 
-<button
-class="btn"
-onclick="window.openAPK('${apk.id}')">
+      button.addEventListener(
+        "click",
+        async () => {
 
-VIEW DETAILS
+          const id =
+          button.dataset.download;
 
-</button>
 
-<button
-class="download-btn"
-onclick="window.downloadAPK('${apk.id}')">
+          const apk =
+          allAPKs.find(
+            item =>
+            item.id === id
+          );
 
-DOWNLOAD
 
-</button>
+          if (apk) {
 
-</div>
+            try {
 
-</div>
+              await trackDownload(
+                id
+              );
 
-</article>
+            } catch(error) {
 
-`
-)
-.join("");
+              console.error(
+                error
+              );
+
+            }
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+  document
+  .querySelectorAll(
+    "[data-qr]"
+  )
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const apk =
+          allAPKs.find(
+            item =>
+            item.id ===
+            button.dataset.qr
+          );
+
+
+          if (apk) {
+
+            showQR(
+              apk.downloadUrl
+            );
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+  document
+  .querySelectorAll(
+    "[data-copy]"
+  )
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        async () => {
+
+          const apk =
+          allAPKs.find(
+            item =>
+            item.id ===
+            button.dataset.copy
+          );
+
+
+          if (!apk) return;
+
+
+          try {
+
+            await navigator.clipboard.writeText(
+              apk.downloadUrl
+            );
+
+            button.textContent =
+            "Copied!";
+
+            setTimeout(
+              () => {
+
+                button.textContent =
+                "Copy Direct Link";
+
+              },
+              1500
+            );
+
+          } catch(error) {
+
+            alert(
+              "Copy failed."
+            );
+
+          }
+
+        }
+      );
+
+    }
+  );
 
 }
 
 
 // ============================================================
-// OPEN APK
+// CARD
 // ============================================================
 
-window.openAPK =
-function(id){
+function createCard(
+  apk
+) {
 
-selectedAPK =
-allAPKs.find(
-apk =>
-apk.id === id
-);
+  const features =
+  (apk.features || [])
+  .map(
+    feature => `
 
-if(!selectedAPK)
-return;
+      <li>
+        ✓ ${escapeHTML(
+          feature
+        )}
+      </li>
 
-document.getElementById(
-"modalImage"
-).src =
-selectedAPK.imageUrl ||
-"https://placehold.co/800x500/111/ff174f?text=FRENZY+CHEATS";
+    `
+  )
+  .join("");
 
-document.getElementById(
-"modalTitle"
-).textContent =
-selectedAPK.name;
 
-document.getElementById(
-"modalDescription"
-).textContent =
-selectedAPK.description ||
-selectedAPK.shortDescription ||
-"No description available.";
+  return `
 
-document.getElementById(
-"modalMeta"
-).innerHTML = `
+  <article class="apk-card">
 
-<span class="badge">
-Version:
-${escapeHTML(
-selectedAPK.version || "N/A"
-)}
-</span>
 
-<span class="badge">
-Size:
-${escapeHTML(
-selectedAPK.fileSize || "Unknown"
-)}
-</span>
+    <div class="apk-top">
 
-<span class="badge">
-Category:
-${escapeHTML(
-selectedAPK.category || "Other"
-)}
-</span>
+      <img
+      class="apk-logo"
+      src="${
+        escapeHTML(
+          apk.logoUrl ||
+          "https://via.placeholder.com/200"
+        )
+      }"
+      onerror="this.src='https://via.placeholder.com/200'"
+      >
 
-<span class="badge">
-Downloads:
-${formatNumber(
-selectedAPK.downloadCount || 0
-)}
-</span>
+      <span class="badge">
 
-`;
+        ${escapeHTML(
+          apk.badge ||
+          "Official Download"
+        )}
 
-const screenshots =
-document.getElementById(
-"modalScreenshots"
-);
+      </span>
 
-screenshots.innerHTML =
-(
-selectedAPK.screenshots ||
-[]
-)
-.map(
-url => `
+    </div>
 
-<img
-src="${escapeAttribute(url)}"
-alt="Screenshot"
-loading="lazy">
 
-`
-)
-.join("");
+    <h2>
 
-document.getElementById(
-"modalDownload"
-).onclick =
-() =>
-downloadAPK(
-selectedAPK.id
-);
+      ${escapeHTML(
+        apk.name
+      )}
 
-modal.classList.add(
-"show"
-);
+    </h2>
+
+
+    <p class="short">
+
+      ${escapeHTML(
+        apk.shortDescription ||
+        ""
+      )}
+
+    </p>
+
+
+    <div class="meta">
+
+      <div>
+
+        <small>
+          VERSION
+        </small>
+
+        <strong>
+
+          ${escapeHTML(
+            apk.version ||
+            "Latest"
+          )}
+
+        </strong>
+
+      </div>
+
+
+      <div>
+
+        <small>
+          TOTAL DOWNLOADS
+        </small>
+
+        <strong>
+
+          ${apk.downloadCount || 0}
+
+        </strong>
+
+      </div>
+
+
+      <div>
+
+        <small>
+          COMPATIBILITY
+        </small>
+
+        <strong>
+
+          ${escapeHTML(
+            apk.compatibility ||
+            "Android"
+          )}
+
+        </strong>
+
+      </div>
+
+
+      <div>
+
+        <small>
+          CATEGORY
+        </small>
+
+        <strong>
+
+          ${escapeHTML(
+            apk.category ||
+            "Android"
+          )}
+
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <p class="short">
+
+      ${escapeHTML(
+        apk.description ||
+        ""
+      )}
+
+    </p>
+
+
+    ${
+      features
+      ? `
+
+      <div class="features">
+
+        <h4>
+          KEY FEATURES
+        </h4>
+
+        <ul>
+
+          ${features}
+
+        </ul>
+
+      </div>
+
+      `
+      : ""
+
+    }
+
+
+    <a
+
+    class="download"
+
+    href="${escapeHTML(
+      apk.downloadUrl
+    )}"
+
+    target="_blank"
+
+    rel="noopener noreferrer"
+
+    data-download="${apk.id}">
+
+      ⬇ DIRECT DOWNLOAD APK
+
+    </a>
+
+
+    <div class="actions">
+
+
+      <button
+
+      class="action"
+
+      data-qr="${apk.id}">
+
+        ▣ SCAN QR CODE
+
+      </button>
+
+
+      <button
+
+      class="action"
+
+      data-copy="${apk.id}">
+
+        🔗 COPY DIRECT LINK
+
+      </button>
+
+
+      ${
+        apk.telegramUrl
+        ? `
+
+        <a
+
+        class="action"
+
+        href="${escapeHTML(
+          apk.telegramUrl
+        )}"
+
+        target="_blank">
+
+          ✈ TELEGRAM MIRROR
+
+        </a>
+
+        `
+        : ""
+
+      }
+
+
+    </div>
+
+
+  </article>
+
+  `;
+
+}
+
+
+// ============================================================
+// QR CODE
+// Uses public QR server; no Firebase Storage required
+// ============================================================
+
+function showQR(
+  url
+) {
+
+  const modal =
+  document.getElementById(
+    "qrModal"
+  );
+
+
+  const qr =
+  document.getElementById(
+    "qr"
+  );
+
+
+  qr.innerHTML = `
+
+    <img
+
+    src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(
+      url
+    )}"
+
+    alt="Download QR Code"
+
+    width="220"
+
+    height="220">
+
+  `;
+
+
+  modal.classList.add(
+    "show"
+  );
+
+}
+
+
+window.closeQR =
+function() {
+
+  document
+  .getElementById(
+    "qrModal"
+  )
+  .classList.remove(
+    "show"
+  );
 
 };
-
-
-// ============================================================
-// DOWNLOAD
-// ============================================================
-
-async function downloadAPK(
-id
-){
-
-const apk =
-allAPKs.find(
-item =>
-item.id === id
-);
-
-if(!apk)
-return;
-
-if(!apk.downloadUrl){
-
-alert(
-"Download link is not available."
-);
-
-return;
-
-}
-
-try{
-
-await trackDownload(
-id
-);
-
-}
-catch(error){
-
-console.error(
-"Tracking failed:",
-error
-);
-
-}
-
-// Open/download file
-
-window.open(
-apk.downloadUrl,
-"_blank",
-"noopener"
-);
-
-}
-
-
-// Make available to buttons
-
-window.downloadAPK =
-downloadAPK;
-
-
-// ============================================================
-// CLOSE MODAL
-// ============================================================
-
-closeModal.onclick =
-() => {
-
-modal.classList.remove(
-"show"
-);
-
-};
-
-
-modal.onclick =
-(event) => {
-
-if(event.target === modal){
-
-modal.classList.remove(
-"show"
-);
-
-}
-
-};
-
-
-// ============================================================
-// SEARCH
-// ============================================================
-
-searchInput.addEventListener(
-"input",
-() => {
-
-const search =
-searchInput
-.value
-.toLowerCase()
-.trim();
-
-const filtered =
-allAPKs.filter(
-apk =>
-
-(
-apk.name ||
-""
-)
-.toLowerCase()
-.includes(search)
-
-||
-
-(
-apk.category ||
-""
-)
-.toLowerCase()
-.includes(search)
-
-||
-
-(
-apk.shortDescription ||
-""
-)
-.toLowerCase()
-.includes(search)
-
-);
-
-renderAPKs(
-filtered
-);
-
-}
-);
-
-
-// ============================================================
-// VISITOR TRACKING
-// ============================================================
-
-async function visitorTracking(){
-
-const sessionKey =
-"frenzy_visitor_tracked";
-
-if(
-!sessionStorage.getItem(
-sessionKey
-)
-){
-
-try{
-
-await trackVisitor();
-
-sessionStorage.setItem(
-sessionKey,
-"1"
-);
-
-}
-catch(error){
-
-console.error(
-"Visitor tracking error:",
-error
-);
-
-}
-
-}
-
-}
-
-
-// ============================================================
-// LOAD ANALYTICS
-// ============================================================
-
-async function loadAnalytics(){
-
-try{
-
-const analytics =
-await getAnalytics();
-
-document.getElementById(
-"totalVisitors"
-).textContent =
-formatNumber(
-analytics.totalVisitors || 0
-);
-
-}
-catch(error){
-
-console.error(error);
-
-}
-
-}
 
 
 // ============================================================
@@ -1683,43 +1605,32 @@ console.error(error);
 // ============================================================
 
 function escapeHTML(
-value
-){
+  value
+) {
 
-return String(
-value || ""
-)
-.replace(
-/&/g,
-"&amp;"
-)
-.replace(
-/</g,
-"&lt;"
-)
-.replace(
-/>/g,
-"&gt;"
-)
-.replace(
-/"/g,
-"&quot;"
-)
-.replace(
-/'/g,
-"&#039;"
-);
-
-}
-
-
-function escapeAttribute(
-value
-){
-
-return escapeHTML(
-value
-);
+  return String(
+    value || ""
+  )
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /'/g,
+    "&#039;"
+  );
 
 }
 
@@ -1728,17 +1639,7 @@ value
 // START
 // ============================================================
 
-document.getElementById(
-"year"
-).textContent =
-new Date()
-.getFullYear();
-
-await visitorTracking();
-
-await loadAPKs();
-
-await loadAnalytics();
+loadAPKs();
 
 </script>
 
